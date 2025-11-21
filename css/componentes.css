@@ -2,6 +2,38 @@
     height: 500px;   
     object-fit: cover; }
 
-.card{
-    background-color: blue;
+.card {
+    background-color: #FFFFFF; 
+    border: 2px solid #5D0E41; 
+    border-radius: 15px;
+    padding: 15px;
 }
+
+.card-title {
+    color: #A0153E;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #00224D;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+section h3 {
+    text-align: center;
+    color: #5D0E41;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.card img {
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
