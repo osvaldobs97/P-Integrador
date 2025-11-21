@@ -3,8 +3,18 @@ html{
     --hgColor:#0D0D0D;
     --primary-color: #FF204E;
     --secondary-color: #A0153E;
-    --textFont: "Nunito Sans", sans-serif;
-    --titlesFont: "Libre Caslon Text", serif;
+    --textFont: "Comic Neue", sans-serif;
+    --titlesFont: "Patrick Hand", serif;
 }
 
 
+h3 {
+    text-align: center;
+    color: #5D0E41;
+    margin-bottom: 25px;
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: var(--titlesFont);
+    ;
+}
