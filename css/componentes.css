@@ -1,17 +1,26 @@
+html{
+    --bgcolor:#00224D;
+    --hgColor:#0D0D0D;
+    --primary-color: #FF204E;
+    --secondary-color: #A0153E;
+    --textFont: "Comic Neue", sans-serif;
+    --titlesFont: "Patrick Hand", serif;
+}
+
 .hero-carousel .carousel-item img {
     height: 500px;   
     object-fit: cover; }
 
 .card {
-    background-color: #00224D; 
-    border: 2px solid #5D0E41; 
+    background-color: var(--bgcolor); 
+    border: 2px solid var(--secondary-color); 
     border-radius: 15px;
     padding: 15px;
 
 }
 
 .card-title {
-    color: #A0153E;
+    color: var(--secondary-color);
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -35,9 +44,9 @@
 }
 
 #navBar{
-    background-color:#00224D;
+    background-color:var(--bgcolor);
 }
 
 .hero-carousel .carousel-item{
-    background-color: #00224D;
+    background-color: var(--bgcolor);
 }
