@@ -11,6 +11,28 @@ html{
     height: 500px;   
     object-fit: cover; }
 
+/* acordion */
+
+.accordion-button:not(.collapsed){
+    background-color: var(--bgcolor);
+    color: var(--secondary-color);
+    font-family: var(--titlesFont);
+    font-size: 2rem;
+}
+.accordion-button{
+    background-color: var(--bgcolor);
+    color: var(--secondary-color);
+    font-family: var(--titlesFont);
+    font-size: 2rem;
+}
+.accordion-collapse{
+    background-color: white;
+    color: var(--hgColor);
+    font-family: var(--textFont);
+    font-size: 0.95rem;
+}
+/* acordion */
+
 .card {
     background-color: var(--bgcolor); 
     border: 2px solid var(--secondary-color); 
