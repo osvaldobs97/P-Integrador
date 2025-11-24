@@ -1,7 +1,74 @@
+html{
+    --bgcolor:#00224D;
+    --hgColor:#0D0D0D;
+    --primary-color: #FF204E;
+    --secondary-color: #A0153E;
+    --textFont: "Comic Neue", sans-serif;
+    --titlesFont: "Patrick Hand", serif;
+}
+
 .hero-carousel .carousel-item img {
     height: 500px;   
     object-fit: cover; }
 
-.card{
-    background-color: blue;
+/* acordion */
+
+.accordion-button:not(.collapsed){
+    background-color: var(--bgcolor);
+    color: var(--secondary-color);
+    font-family: var(--titlesFont);
+    font-size: 2rem;
+}
+.accordion-button{
+    background-color: var(--bgcolor);
+    color: var(--secondary-color);
+    font-family: var(--titlesFont);
+    font-size: 2rem;
+}
+.accordion-collapse{
+    background-color: white;
+    color: var(--hgColor);
+    font-family: var(--textFont);
+    font-size: 0.95rem;
+}
+/* acordion */
+
+.card {
+    background-color: var(--bgcolor); 
+    border: 2px solid var(--secondary-color); 
+    border-radius: 15px;
+    padding: 15px;
+
+}
+
+.card-title {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #ffffff;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+
+.card img {
+    transition: transform 0.4s ease;
+    width: 200px;
+    height: 250px;
+    object-fit: cover;   
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+#navBar{
+    background-color:var(--bgcolor);
+}
+
+.hero-carousel .carousel-item{
+    background-color: var(--bgcolor);
 }
