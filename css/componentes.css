@@ -72,3 +72,10 @@ html{
 .hero-carousel .carousel-item{
     background-color: var(--bgcolor);
 }
+
+.form-label{
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-family: var(--titlesFont);
+    font-size: 1.3rem;
+}
