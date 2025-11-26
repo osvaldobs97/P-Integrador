@@ -61,7 +61,7 @@ html{
     object-fit: cover;   
 }
 
-.card:hover img {
+.card:hover{
     transform: scale(1.05);
 }
 
