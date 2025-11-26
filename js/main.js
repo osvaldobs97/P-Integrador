@@ -14,25 +14,7 @@ const formularioContacto = document.getElementById("formularioContacto");
 (function () {
     emailjs.init("EXX6miCFreEdge_mH");  // <- reemplaza
 })();
-
-function enviarCorreo() {
-    const templateParams = {
-        from_name: document.getElementById("nombre").value,
-        from_email: document.getElementById("correo").value,
-        phone: document.getElementById("telefono").value,
-        message: document.getElementById("mensaje").value
-    };
-
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams) // <- reemplaza
-        .then(function (response) {
-            alert("Mensaje enviado correctamente ❤️");
-        })
-        .catch(function (error) {
-            console.error("Error:", error);
-            alert("Error al enviar el mensaje 😥");
-        });
-}
-//correos
+//Correos
 
 
 
