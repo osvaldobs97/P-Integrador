@@ -14,7 +14,7 @@
 
 <body>
     <!--NavBar-->
-    <header
+    <header id="navBar"
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex align-items-center text-decoration-none">
@@ -27,8 +27,8 @@
             <li><a href="..." class="nav-link px-2">Productos</a></li>
             <li><a href="..." class="nav-link px-2">Contactanos</a></li>
             Comentados por el momento -->
-            <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
-            <li><a href="contacto.html" class="nav-link px-2 link-secondary">Contacto</a></li>
+            <li><a href="index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
+            <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
             <li><a href="acercaDe.html" class="nav-link px-2 link-secondary">Acerca de nosotros</a></li>
         </ul>
 
@@ -39,7 +39,7 @@
     </header>
 
     <!-- Formulario contacto -->
-  <div class="container mt-5">
+<div class="container mt-5">
     <div class="row justify-content-center">
         
         <!-- Columna izquierda - form -->
@@ -49,22 +49,22 @@
             <form>
                 <div class="mb-3">
                     <label for="inputNombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="inputNombre" placeholder="">
+                    <input type="text" class="form-control" id="inputNombre" placeholder="Primer nombre y apellidó">
                 </div>
 
                 <div class="mb-3">
                     <label for="inputCorreo" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="inputCorreo">
+                    <input type="email" class="form-control" id="inputCorreo" placeholder="correo@example.com">
                 </div>
 
                 <div class="mb-3">
                     <label for="inputTelefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="inputTelefono">
+                    <input type="text" class="form-control" id="inputTelefono" placeholder="5500 333 222">
                 </div>
 
                 <div class="mb-3">
                     <label for="inputMensaje" class="form-label">Mensaje</label>
-                    <textarea class="form-control" id="inputMensaje" rows="3" placeholder="Escribe tu mensaje"></textarea>
+                    <textarea class="form-control" id="inputMensaje" rows="3" placeholder="Escribe tu idea o diseño"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Enviar</button>
