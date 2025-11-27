@@ -87,4 +87,7 @@ iframe {
     .hero-carousel {
         padding: 15px;
     }
+    .hero-carousel .carousel-item img {
+        height: 300px;
+    }
 }
