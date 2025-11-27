@@ -65,7 +65,7 @@ html{
 
 .card img {
     transition: transform 0.4s ease;
-    width: 200px;
+    width: 100%;
     height: 250px;
     object-fit: cover;   
 }
@@ -81,4 +81,10 @@ html{
 
 iframe {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .hero-carousel {
+        padding: 15px;
+    }
 }
