@@ -23,7 +23,8 @@ const formularioContacto = document.getElementById("formularioContacto");
 
 function validarNombre(nombre) {
     const regex = /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+(?: [A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+)*$/;
-    return regex.test(nombre.trim());
+    const limpio = nombre.trim();
+    return regex.test(limpio) && limpio.length >= 3;
 }
 
 function validarEmail(email) {
@@ -113,10 +114,10 @@ btnSubmit.addEventListener("click", function (event) {
     txtMensaje.value = "";
 
     alertValidaciones.style.display="none";
-    txtNombre.style.border="none";
-    txtCorreo.style.border="none";
-    txtTelefono.style.border="none";
-    txtMensaje.style.border="none";
+    txtNombre.style.border="";
+    txtCorreo.style.border="";
+    txtTelefono.style.border="";
+    txtMensaje.style.border="";
     
 
     });
