@@ -1,3 +1,10 @@
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 html{
     --bgcolor:#00224D;
     --hgColor:#0D0D0D;
@@ -7,13 +14,71 @@ html{
     --titlesFont: "Patrick Hand", serif;
 }
 
+body{
+    background-image: url("../assets/fondo.png");
+    background-repeat: repeat;   
+    background-position: top left;
+    
+}
 
-h3 {
+h1{
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.577);
     color: var(--secondary-color);
     margin-bottom: 25px;
     margin-top: 40px;
     font-weight: bold;
+    font-size: 4rem;
+    font-family: var(--titlesFont);
+
+}
+h2,h3 {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.577);
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-weight: bold;
     font-size: 3rem;
     font-family: var(--titlesFont);
 }
+
+.btn-primary{
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover{
+    background-color: #FF204E;
+    box-shadow: 0 0 12px rgba(255, 0, 111, 0.7);
+    transition: 0.3s ease;
+}
+
+footer{
+    background-color: var(--bgcolor);
+    color: white;
+}
+
+#formularioContacto{
+    font-family: var(--textFont);
+}
+
+#form-container {
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 25px;
+    margin-bottom: 60px;   /* <-- separa del footer */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2, h3 {
+        font-size: 2rem;
+    }
+}
+

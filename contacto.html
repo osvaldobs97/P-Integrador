@@ -8,70 +8,142 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&display=swap"
-        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/componentes.css">
+    <link rel="icon" type="image/x-icon" href="./assets/universalcopy_icon.ico">
 </head>
 
-<body>
-    <!--NavBar-->
-    <header id="navBar"
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex align-items-center text-decoration-none">
-                <img src="./assets/logo.png" alt="Logo" width="50" height="50" class="me-2">
-            </a>
-        </div>
 
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <!-- <li><a href="..." class="nav-link px-2">Inicio</a></li>
+<!--NavBar-->
+<header id="navBar"
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex align-items-center text-decoration-none">
+            <img src="./assets/logo.png" alt="Logo" width="50" height="50" class="me-2">
+            <span class="fs-4 fw-bold text-light">UniversalCopy</span>
+        </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <!-- <li><a href="..." class="nav-link px-2">Inicio</a></li>
             <li><a href="..." class="nav-link px-2">Productos</a></li>
             <li><a href="..." class="nav-link px-2">Contactanos</a></li>
             Comentados por el momento -->
-            <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
-            <li><a href="contacto.html" class="nav-link px-2 link-secondary">Contacto</a></li>
-            <li><a href="acercaDe.html" class="nav-link px-2 link-secondary">Acerca de nosotros</a></li>
-        </ul>
+        <li><a href="index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+        <li><a href="acercaDe.html" class="nav-link px-2 link-secondary">Acerca de nosotros</a></li>
+    </ul>
 
-        <div class="col-md-3 text-end">
-            <!-- <a href="./login.html" class="btn btn-outline-primary me-2">Login</a>
+    <div class="col-md-3 text-end">
+        <!-- <a href="./login.html" class="btn btn-outline-primary me-2">Login</a>
             <a href="./signup.html" class="btn btn-primary">Sign-up</a> Comentados por el momento -->
-        </div>
-    </header>
-    
+    </div>
+</header>
+
+<body>
     <!-- Formulario contacto -->
-    <form>
-        <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="email" class="form-control" id="inputNombre" aria-describedby="emailHelp">
+    <div class="container mt-5" id="form-container">
+        <div class="row justify-content-center">
+
+            <!-- Columna izquierda - form -->
+            <div class="col-md-6 p-4 rounded shadow custom-form-bg">
+                <h2 class="text-center mb-4">Contáctanos</h2>
+                <div class="alert alert-danger fade show" style="display:none;" role="alert" id="alertValidaciones">
+                    <p id="alertValidacionesTexto"></p>
+                </div>
+                <form id="formularioContacto">
+                    <div class="mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" placeholder="Ej: Juan Pérez">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputCorreo" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="inputCorreo" placeholder="correo@example.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputTelefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="inputTelefono" placeholder="5500333222">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputMensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="inputMensaje" rows="3"
+                            placeholder="Platícanos qué necesitas y con gusto te ayudamos."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar</button>
+                    <button type="submit" class="btn btn-primary " id="btnClear">Limpiar todo</button>
+                </form>
+            </div>
+
+            <!-- Columna derecha - Mapa -->
+            <div class="col-md-6 p-4 rounded shadow custom-form-bg">
+                <h2 class="text-center mb-4">Ubicación</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3760.906060250465!2d-99.133262!3d19.502677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMwJzA5LjYiTiA5OcKwMDcnNTkuNyJX!5e0!3m2!1ses-419!2smx!4v1764109313898!5m2!1ses-419!2smx"
+                    width="100%" height="380" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="inputCorreo" class="form-label">Correo</label>
-            <input type="email" class="form-control" id="inputCorreo" aria-describedby="emailHelp">
+    </div>
+    <!-- Footer-->
+    <footer class="pt-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: logo y descripción -->
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="./assets/logo.png" alt="Logo UniversalCopy" width="40" height="40" class="me-2">
+                        <span class="h5 mb-0">UniversalCopy</span>
+                    </div>
+                    <p class="mb-0 small">
+                        Impresión y personalización de productos para tus eventos, negocios y momentos especiales.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlances -->
+                <div class="col-6 col-md-4 mb-3">
+                    <h6 class="fw-bold">Enlaces</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="index.html" class="text-decoration-none text-light small">Inicio</a></li>
+                        <li><a href="contacto.html" class="text-decoration-none text-light small">Contacto</a></li>
+                        <li><a href="acercaDe.html" class="text-decoration-none text-light small">Acerca de nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div class="col-6 col-md-4 mb-3">
+                    <h6 class="fw-bold">Contacto</h6>
+                    <p class="mb-1 small">Email: <a href="mailto:info@universalcopy.com"
+                            class="text-decoration-none text-light">universalcopy.contacto@gmail.com</a></p>
+                    <p class="mb-1 small">Tel: +52 55 0000 0000</p>
+                    <p class="mb-0 small">Horario: Lun–Sáb 9:00–18:00</p>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">
+                        &copy; 2025 UniversalCopy. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="inputTelefono" class="form-label">Teléfono</label>
-            <input type="email" class="form-control" id="inputTelefono" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="inputMensaje" class="form-label">Mensaje</label>
-            <input type="email" class="form-control" id="inputMensaje" aria-describedby="emailHelp">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-</body>
+    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-</html>
+
+</body>
