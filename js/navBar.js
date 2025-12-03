@@ -3,8 +3,8 @@ header.className =
     "d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom";
 header.innerHTML = `
     <div class="col-md-3 mb-2 mb-md-0">
-        <a href="/" class="d-inline-flex align-items-center text-decoration-none">
-            <img src="./assets/logo.png" alt="Logo" width="50" height="50" class="me-2">
+        <a href="index.html" class="d-inline-flex align-items-center text-decoration-none">
+            <img src="./assets/logo.webp" alt="Logo" width="50" height="50" class="me-2">
             <span class="fs-4 fw-bold text-light">UniversalCopy</span>
         </a>
     </div>

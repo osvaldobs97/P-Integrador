@@ -10,15 +10,15 @@ html{
     --hgColor:#0D0D0D;
     --primary-color: #FF204E;
     --secondary-color: #A0153E;
-    --textFont: "Comic Neue", sans-serif;
-    --titlesFont: "Patrick Hand", serif;
+    --textFont: 'Inter', sans-serif;
+    --titlesFont:'Poppins', sans-serif;
 }
 
 body{
-    background-image: url("../assets/fondo.png");
+    background-image: url("../assets/fondo.webp");
     background-repeat: repeat;   
     background-position: top left;
-    
+    font-family: var(--textFont);    /*  se agrega solo para el texto de abajo del mapa */
 }
 
 h1{

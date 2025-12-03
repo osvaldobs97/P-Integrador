@@ -38,7 +38,7 @@ function validarTelefono(telefono) {
 }
 
 function validarMensaje(mensaje){
-    return mensaje.trim().length >= 50;
+    return mensaje.trim().length >= 10;
 }
 
 
