@@ -3,8 +3,8 @@ html{
     --hgColor:#0D0D0D;
     --primary-color: #FF204E;
     --secondary-color: #ca1d51;
-    --textFont: "Comic Neue", sans-serif;
-    --titlesFont: "Patrick Hand", serif;
+    --textFont: 'Inter', sans-serif;
+    --titlesFont: 'Poppins', sans-serif;
 }
 
 .hero-carousel .carousel-item img {
@@ -15,7 +15,7 @@ html{
     object-fit: cover;
 }
 .hero-carousel {
-    background-image: url("../assets/fondo2.png");
+    background-image: url("../assets/fondo2.webp");
     padding: 40px;
 }
 
@@ -89,5 +89,8 @@ iframe {
     }
     .hero-carousel .carousel-item img {
         height: 300px;
+    }
+    .card img {
+        height: 400px;
     }
 }
