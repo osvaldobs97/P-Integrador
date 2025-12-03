@@ -1,0 +1,72 @@
+[
+    {
+        "id":1,
+        "nombre": "Playera blanca 100% poliester",
+        "precio": 179.99,
+        "Descripcion": "playera cuello redonda manga corta blanca",
+        "imagen": "assets/productos/playera.webp"
+    },
+        {
+        "id":2,
+        "nombre": "Taza blanca",
+        "precio": 84.99,
+        "Descripcion": "Taza blanca ceramica de 11 oz",
+        "imagen": "assets/productos/Taza blanca.webp"
+    },
+        {
+        "id":3,
+        "nombre": "Termo 40 oz",
+        "precio": 349.99,
+        "Descripcion": "Termo Tumbler doble pared acero 40 oz",
+        "imagen": "assets/productos/termo.webp"
+    },
+        {
+        "id":4,
+        "nombre": "Taza mágica",
+        "precio": 149.99,
+        "Descripcion": "Taza Mágica Cerámica 11 oz. El diseño aparece al servir agua caliente.",
+        "imagen" : "assets/productos/taza magica.webp"
+    },
+        {
+        "id":5,
+        "nombre": "Agenda",
+        "precio": 394.99,
+        "Descripcion": "Agenda diaria de pasta rígida con cintillo magnético de PU con placa metálica y logotipo en color plata.",
+        "imagen" : "assets/productos/Agenda diaria.webp"
+    },
+        {
+        "id":6,
+        "nombre": "Sudadera",
+        "precio": 394.99,
+        "Descripcion": "Sudadera con Capucha y Cangurera Unisex para Adulto • 50% Algodón 50% Poliéster",
+        "imagen" :"assets/productos/sudadera.webp"
+    },
+        {
+        "id":7,
+        "nombre": "Gorra",
+        "precio": 124.99,
+        "Descripcion": "Gorra con broche velcro, lisa de 5 gajos y ojillos bordados, broche ajustable con cinta de contacto",
+        "imagen" : "assets/productos/gorra.webp"
+    },
+        {
+        "id":8,
+        "nombre": "Pluma metálica",
+        "precio": 54.99,
+        "Descripcion": "Pluma Metálica, bolígrafo de aluminio con clip, punta y detalles en cromo, mecanismo de click.",
+        "imagen" : "assets/productos/pluma.webp"
+    },
+        {
+        "id":9,
+        "nombre": "Llavero",
+        "precio": 34.99,
+        "Descripcion": "Llavero metálico giratorio",
+        "imagen" : "assets/productos/llavero.webp"
+    },
+        {
+        "id":10,
+        "nombre": "Bolsa ecológica",
+        "precio": 179.99,
+        "Descripcion": "Bolsa Ecológica sin fuelle, sellada a calor",
+        "imagen": "assets/productos/Bolsa.webp"
+    }
+]
