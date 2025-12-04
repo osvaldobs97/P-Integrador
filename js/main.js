@@ -77,7 +77,7 @@ btnSubmit.addEventListener("click", function (event) {
 
     if(!validarMensaje(txtMensaje.value)){
         txtMensaje.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML+= "<strong>Mensaje Mínimo 50 caracteres</strong><br/>";
+        alertValidacionesTexto.innerHTML+= "<strong>Mensaje Mínimo 10 caracteres</strong><br/>";
         alertValidaciones.style.display = "block";
         isValid=false;
     }

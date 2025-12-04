@@ -3,21 +3,21 @@
         "id":1,
         "nombre": "Playera blanca 100% poliester",
         "precio": 179.99,
-        "descripcion": "playera cuello redonda manga corta blanca",
+        "descripcion": "playera cuello redonda manga corta blanca.",
         "imagen": "assets/productos/playera.webp"
     },
         {
         "id":2,
         "nombre": "Taza blanca",
         "precio": 84.99,
-        "descripcion": "Taza blanca ceramica de 11 oz",
+        "descripcion": "Taza blanca ceramica de 11 oz.",
         "imagen": "assets/productos/Taza blanca.webp"
     },
         {
         "id":3,
-        "nombre": "Termo 40 oz",
+        "nombre": "Termo",
         "precio": 349.99,
-        "descripcion": "Termo Tumbler doble pared acero 40 oz",
+        "descripcion": "Termo Tumbler doble pared acero 40 oz.",
         "imagen": "assets/productos/termo.webp"
     },
         {
@@ -38,14 +38,14 @@
         "id":6,
         "nombre": "Sudadera",
         "precio": 394.99,
-        "descripcion": "Sudadera con Capucha y Cangurera Unisex para Adulto • 50% Algodón 50% Poliéster",
+        "descripcion": "Sudadera con Capucha y Cangurera Unisex para Adulto • 50% Algodón 50% Poliéster.",
         "imagen" :"assets/productos/sudadera.webp"
     },
         {
         "id":7,
         "nombre": "Gorra",
         "precio": 124.99,
-        "descripcion": "Gorra con broche velcro, lisa de 5 gajos y ojillos bordados, broche ajustable con cinta de contacto",
+        "descripcion": "Gorra con broche velcro, lisa de 5 gajos y ojillos bordados, broche ajustable con cinta de contacto.",
         "imagen" : "assets/productos/gorra.webp"
     },
         {
@@ -59,14 +59,14 @@
         "id":9,
         "nombre": "Llavero",
         "precio": 34.99,
-        "descripcion": "Llavero metálico giratorio",
+        "descripcion": "Llavero metálico giratorio.",
         "imagen" : "assets/productos/llavero.webp"
     },
         {
         "id":10,
         "nombre": "Bolsa ecológica",
         "precio": 179.99,
-        "descripcion": "Bolsa Ecológica sin fuelle, sellada a calor",
+        "descripcion": "Bolsa Ecológica sin fuelle, sellada a calor.",
         "imagen": "assets/productos/Bolsa.webp"
     }
 ]
