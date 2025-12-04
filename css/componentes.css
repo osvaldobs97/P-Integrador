@@ -19,6 +19,8 @@ html{
     padding: 40px;
 }
 
+/*Tarjetas nuevas valores*/
+
 
 /* acordion */
 
@@ -47,7 +49,7 @@ html{
     border: 2px solid var(--secondary-color); 
     border-radius: 15px;
     padding: 15px;
-
+    color: aliceblue;
 }
 
 .card-title {
