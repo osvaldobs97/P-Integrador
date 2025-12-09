@@ -19,7 +19,7 @@ function crearCards(productos) {
   productos.forEach(producto => {
     html += `
       <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm" id = "productoCard"> 
           <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">${producto.nombre}</h5>

@@ -29,6 +29,7 @@ h5 {
     font-family: var(--titlesFont);
     color: #ffffff;
     text-align: center;
+    margin-top: 15px;
 }
 
 /* responsive */

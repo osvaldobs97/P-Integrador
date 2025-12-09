@@ -33,8 +33,8 @@ function validarEmail(email) {
 }
 
 function validarTelefono(telefono) {
-    const soloNumeros = telefono.replace(/\D/g, "");
-    return soloNumeros.length === 10;
+    const regex = /^([2-9]\d{2})\s?(\d{3})\s?(\d{4})$/;
+     return regex.test(telefono.trim());
 }
 
 function validarMensaje(mensaje){
@@ -70,7 +70,7 @@ btnSubmit.addEventListener("click", function (event) {
 
     if (!validarTelefono(txtTelefono.value)) {
         txtTelefono.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML+= "<strong>Teléfono Inválido. Debe tener 10 caracteres.</strong><br/>";
+        alertValidacionesTexto.innerHTML+= "<strong>Teléfono invalido. Formato a 10 números y sin guiones.</strong><br/>";
         alertValidaciones.style.display = "block";
         isValid = false;
     }

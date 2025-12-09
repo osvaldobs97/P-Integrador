@@ -43,6 +43,10 @@ html{
     object-fit: cover;   
 }
 
+#productoCard img {
+    height: 350px;
+}
+
 .card:hover{
     transform: scale(1.05);
 }

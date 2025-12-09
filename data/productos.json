@@ -1,9 +1,9 @@
 [
     {
         "id":1,
-        "nombre": "Playera blanca 100% poliester",
+        "nombre": "Playera blanca 100% poliéster",
         "precio": 179.99,
-        "descripcion": "playera cuello redonda manga corta blanca.",
+        "descripcion": "Playera cuello redonda manga corta blanca.",
         "imagen": "assets/productos/playera.webp"
     },
         {
