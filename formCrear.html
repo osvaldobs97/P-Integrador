@@ -8,7 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/componentes.css">
@@ -20,74 +22,58 @@
     <header id="navBar"></header>
 
     <main class="container my-5">
-    <h1 class="mb-4">Crea tu producto</h1>
-<!-- Aletras de error-->
-      <div id="alertContainer"></div>
+        <h1 class="mb-4">Crea tu producto</h1>
+        <!-- Aletras de error-->
+        <div id="alertContainer"></div>
 
-      <!--Formulario-->
-       <form id="formProducto" class="p-4 shadow-sm bg-light rounded">
+        <!--Formulario-->
+        <div class="form-container">
+            <form id="formProducto" class="p-4 shadow-sm rounded custom-form-bg">
+                <!-- NOMBRE -->
+                <div class="mb-3">
+                    <label for="inputNombreCrear" class="form-label fw-bold">Nombre del producto</label>
+                    <input type="text" id="inputNombre" class="form-control"
+                        placeholder="Ej. Playera blanca 100% poliéster">
+                </div>
 
-        <!-- NOMBRE -->
-            <div class="mb-3">
-                <label for="inputNombre" class="form-label fw-bold">Nombre del producto</label>
-                <input
-                    type="text"
-                    id="inputNombre"
-                    class="form-control"
-                    placeholder="Ej. Playera blanca 100% poliéster">
-            </div>
+                <!-- PRECIO -->
+                <div class="mb-3">
+                    <label for="inputPrecioCrear" class="form-label fw-bold">Precio (MXN)</label>
+                    <input type="number" id="inputPrecio" class="form-control" min="1" step="0.01">
+                </div>
 
-            <!-- PRECIO -->
-            <div class="mb-3">
-                <label for="inputPrecio" class="form-label fw-bold">Precio (MXN)</label>
-                <input
-                    type="number"
-                    id="inputPrecio"
-                    class="form-control"
-                    min="1"
-                    step="0.01">
-            </div>
+                <!-- DESCRIPCIÓN -->
+                <div class="mb-3">
+                    <label for="inputDescripcionCrear" class="form-label fw-bold">Descripción</label>
+                    <textarea id="inputDescripcion" class="form-control" rows="3"
+                        placeholder="Describe el producto..."></textarea>
+                </div>
 
-            <!-- DESCRIPCIÓN -->
-            <div class="mb-3">
-                <label for="inputDescripcion" class="form-label fw-bold">Descripción</label>
-                <textarea
-                    id="inputDescripcion"
-                    class="form-control"
-                    rows="3"
-                    placeholder="Describe el producto..."></textarea>
-            </div>
+                <!-- IMAGEN -->
+                <div class="mb-3">
+                    <label for="inputImagenCrear" class="form-label fw-bold">URL de la imagen</label>
+                    <input type="text" id="inputImagen" class="form-control"
+                        placeholder="assets/productos/mi-producto.webp">
+                </div>
 
-            <!-- IMAGEN -->
-            <div class="mb-3">
-                <label for="inputImagen" class="form-label fw-bold">URL de la imagen</label>
-                <input
-                    type="text"
-                    id="inputImagen"
-                    class="form-control"
-                    placeholder="assets/productos/mi-producto.webp">
-            </div>
+                <!-- BOTÓN -->
+                <button type="submit" class="btn btn-primary w-100 mt-3">
+                    Crear producto
+                </button>
+            </form>
+        </div>
+    </main>
 
-            <!-- BOTÓN -->
-            <button type="submit" class="btn btn-primary w-100 mt-3">
-                Crear producto
-            </button>
-        </form>
 
-        <!-- RESULTADO: OBJETO JSON -->
-        <section class="mt-5">
-            <h3>Objeto JSON generado</h3>
-            <p class="text-muted">Aquí se muestra el modelo de datos cuando el formulario es válido.</p>
-            <pre id="jsonOutput" class="bg-dark text-light p-3 rounded">{}</pre>
-        </section>
 
-    </main> 
+
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="./js/navBar.js"></script>
     <script src="./js/footer.js"></script>
-    <script src="./js/formCrear.js"></script>
+    <script src="./js/productos.js"></script>
 </body>
 
 </html>
