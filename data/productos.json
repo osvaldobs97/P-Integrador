@@ -3,14 +3,14 @@
         "id":1,
         "nombre": "Playera blanca 100% poliéster",
         "precio": 179.99,
-        "descripcion": "Playera cuello redonda manga corta blanca.",
+        "descripcion": "Playera cuello redondo manga corta blanca.",
         "imagen": "assets/productos/playera.webp"
     },
         {
         "id":2,
         "nombre": "Taza blanca",
         "precio": 84.99,
-        "descripcion": "Taza blanca ceramica de 11 oz.",
+        "descripcion": "Taza blanca cerámica de 11 oz.",
         "imagen": "assets/productos/Taza blanca.webp"
     },
         {

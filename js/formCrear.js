@@ -44,27 +44,27 @@ btnSubmitCrear.addEventListener("click", (event) => {
 
     let errores = [];
 
-    if(!validarTextoProd(txtNombreCrear.value)) {
+    if (!validarTextoProd(txtNombreCrear.value)) {
         txtNombreCrear.style.border = "solid medium red";
         errores.push("El nombre no puede estar vació.");
     };
 
-    if(!validarPrecioProd(txtPrecioCrear.value)) {
+    if (!validarPrecioProd(txtPrecioCrear.value)) {
         txtPrecioCrear.style.border = "solid medium red";
         errores.push("El precio debe ser mayor a 1.");
     };
 
-    if(!validarTextoProd(txtDescripcionCrear.value)) {
+    if (!validarTextoProd(txtDescripcionCrear.value)) {
         txtDescripcionCrear.style.border = "solid medium red";
         errores.push("La descripción no puede estar vacía.");
     }
 
-    if(!validarURLProd(txtImagenCrear.value)) {
+    if (!validarURLProd(txtImagenCrear.value)) {
         txtImagenCrear.style.border = "solid medium red";
         errores.push("El URL debe ser un URL válido.");
     }
 
-    if(errores.length > 0) {
+    if (errores.length > 0) {
         mostrarErrores(errores);
         return;
     };

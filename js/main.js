@@ -7,7 +7,7 @@ const txtCorreo = document.getElementById("inputCorreo");
 const txtTelefono = document.getElementById("inputTelefono");
 const txtMensaje = document.getElementById("inputMensaje");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-const alertValidaciones=document.getElementById("alertValidaciones");
+const alertValidaciones = document.getElementById("alertValidaciones");
 //formulario
 const formularioContacto = document.getElementById("formularioContacto");
 
@@ -34,10 +34,10 @@ function validarEmail(email) {
 
 function validarTelefono(telefono) {
     const regex = /^([2-9]\d{2})\s?(\d{3})\s?(\d{4})$/;
-     return regex.test(telefono.trim());
+    return regex.test(telefono.trim());
 }
 
-function validarMensaje(mensaje){
+function validarMensaje(mensaje) {
     return mensaje.trim().length >= 10;
 }
 
@@ -46,49 +46,49 @@ btnSubmit.addEventListener("click", function (event) {
     event.preventDefault();
     //Bandera
     let isValid = true;
-    txtNombre.style.border="";
-    txtCorreo.style.border="";
-    txtTelefono.style.border="";
-    txtMensaje.style.border="";
-    alertValidacionesTexto.innerHTML="";
-    alertValidaciones.style.display="none";
-    
+    txtNombre.style.border = "";
+    txtCorreo.style.border = "";
+    txtTelefono.style.border = "";
+    txtMensaje.style.border = "";
+    alertValidacionesTexto.innerHTML = "";
+    alertValidaciones.style.display = "none";
+
 
     if (!validarNombre(txtNombre.value)) {
         txtNombre.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML+= "<strong>Nombre y Apellido Requeridos. Solo letras.</strong><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>Nombre y Apellido Requeridos. Solo letras.</strong><br/>";
         alertValidaciones.style.display = "block";
         isValid = false;
     }
 
     if (!validarEmail(txtCorreo.value)) {
         txtCorreo.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML+= "<strong>Correo Inválido. Verifique el formato.</strong><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>Correo Inválido. Verifique el formato.</strong><br/>";
         alertValidaciones.style.display = "block";
         isValid = false;
     }
 
     if (!validarTelefono(txtTelefono.value)) {
         txtTelefono.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML+= "<strong>Teléfono invalido. Formato a 10 números y sin guiones.</strong><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>Teléfono invalido. Formato a 10 números y sin guiones.</strong><br/>";
         alertValidaciones.style.display = "block";
         isValid = false;
     }
 
-    if(!validarMensaje(txtMensaje.value)){
+    if (!validarMensaje(txtMensaje.value)) {
         txtMensaje.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML+= "<strong>Mensaje Mínimo 10 caracteres</strong><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>Mensaje Mínimo 10 caracteres</strong><br/>";
         alertValidaciones.style.display = "block";
-        isValid=false;
+        isValid = false;
     }
 
     if (isValid) {
-        
+
         Swal.fire({
-    icon: "success",
-    title: "¡Mensaje enviado!",
-    text: "Nos pondremos en contacto contigo muy pronto.",
-    });
+            icon: "success",
+            title: "¡Mensaje enviado!",
+            text: "Nos pondremos en contacto contigo muy pronto.",
+        });
 
 
         emailjs.send("service_o9tr7a5", "template_zquzcob", {
@@ -98,28 +98,28 @@ btnSubmit.addEventListener("click", function (event) {
             message: txtMensaje.value
 
         });
-    
+
         formularioContacto.reset();
 
     }//isValid
 
 });
 
-    btnClear.addEventListener("click", function(event){
+btnClear.addEventListener("click", function (event) {
     event.preventDefault();
     txtNombre.value = "";
     txtNombre.focus();
-    txtCorreo.value= "";
-    txtTelefono.value= "";
+    txtCorreo.value = "";
+    txtTelefono.value = "";
     txtMensaje.value = "";
 
-    alertValidaciones.style.display="none";
-    txtNombre.style.border="";
-    txtCorreo.style.border="";
-    txtTelefono.style.border="";
-    txtMensaje.style.border="";
-    
+    alertValidaciones.style.display = "none";
+    txtNombre.style.border = "";
+    txtCorreo.style.border = "";
+    txtTelefono.style.border = "";
+    txtMensaje.style.border = "";
 
-    });
+
+});
 
 

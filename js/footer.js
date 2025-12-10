@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let footer = document.createElement("footer");
+  let footer = document.createElement("footer");
 
-    footer.classList.add("site-footer", "pt-4", "mt-auto");
+  footer.classList.add("site-footer", "pt-4", "mt-auto");
 
-    footer.innerHTML = `
+  footer.innerHTML = `
     <div class="container pb-3">
       <div class="row">
 
@@ -56,5 +56,5 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 
-    document.body.appendChild(footer);
+  document.body.appendChild(footer);
 });
