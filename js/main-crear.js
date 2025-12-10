@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", e => {
         e.preventDefault();
 
+    if (!validarFormularioCrear()) return;
+
         addProducto({
-            nombre: form.inputNombre.value,
-            precio: form.inputPrecio.value,
-            descripcion: form.inputDescripcion.value,
-            imagen: form.inputImagen.value
+            nombre: form.inputNombreCrear.value,
+            precio: form.inputPrecioCrear.value,
+            descripcion: form.inputDescripcionCrear.value,
+            imagen: form.inputImagenCrear.value
         });
 
         form.reset();
