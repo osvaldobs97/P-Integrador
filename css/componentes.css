@@ -19,9 +19,18 @@ html{
     padding: 40px;
 }
 
-
-
-
+/* card-lista-valores */
+#listaValores {
+    list-style-type: none;
+}
+.desktop-text {
+    
+    display: inline;
+}
+.mobile-text {
+    display: none;
+}
+/* ------------------ */
 .card {
     background-color: var(--bgcolor); 
     border: 2px solid var(--secondary-color); 
@@ -120,5 +129,14 @@ iframe {
     }
     .card img {
         height: 400px;
+    }
+}
+/* card-lista-valores */
+@media (max-width: 993px) {
+    .desktop-text {
+    display: none;
+    }
+    .mobile-text {
+    display: inline;
     }
 }
