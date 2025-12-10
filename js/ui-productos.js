@@ -1,19 +1,14 @@
-//Para cargar los datos del json e inyectarlos en 
-const container = document.getElementById("cardContainer");
+let container;
 
-document.addEventListener("DOMContentLoaded", () => {
-  cargarProductos();
-});
-
-function cargarProductos() {
-  fetch("https://osvaldobs97.github.io/P-Integrador/data/productos.json")
-    .then(response => response.json())
-    .then(data => {
-      crearCards(data);
-    })
+function initProductosUI() {
+  container = document.getElementById("cardContainer");
 }
 
 function crearCards(productos) {
+  if (!container) return;
+
+  container.innerHTML = "";
+
   let html = "";
 
   productos.forEach(producto => {
