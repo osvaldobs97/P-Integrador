@@ -24,7 +24,7 @@
     <main class="container my-5">
         <h1 class="mb-4">Crea tu producto</h1>
         <!-- Aletras de error-->
-        <div id="alertContainer"></div>
+        <div id="alertValidacionesContainer"></div>
 
         <!--Formulario-->
         <div class="form-container">
@@ -32,32 +32,32 @@
                 <!-- NOMBRE -->
                 <div class="mb-3">
                     <label for="inputNombreCrear" class="form-label fw-bold">Nombre del producto</label>
-                    <input type="text" id="inputNombre" class="form-control"
+                    <input type="text" id="inputNombreCrear" class="form-control"
                         placeholder="Ej. Playera blanca 100% poliéster">
                 </div>
 
                 <!-- PRECIO -->
                 <div class="mb-3">
                     <label for="inputPrecioCrear" class="form-label fw-bold">Precio (MXN)</label>
-                    <input type="number" id="inputPrecio" class="form-control" min="1" step="0.01">
+                    <input type="number" id="inputPrecioCrear" class="form-control" min="1" step="0.01">
                 </div>
 
                 <!-- DESCRIPCIÓN -->
                 <div class="mb-3">
                     <label for="inputDescripcionCrear" class="form-label fw-bold">Descripción</label>
-                    <textarea id="inputDescripcion" class="form-control" rows="3"
+                    <textarea id="inputDescripcionCrear" class="form-control" rows="3"
                         placeholder="Describe el producto..."></textarea>
                 </div>
 
                 <!-- IMAGEN -->
                 <div class="mb-3">
                     <label for="inputImagenCrear" class="form-label fw-bold">URL de la imagen</label>
-                    <input type="text" id="inputImagen" class="form-control"
+                    <input type="text" id="inputImagenCrear" class="form-control"
                         placeholder="assets/productos/mi-producto.webp">
                 </div>
 
                 <!-- BOTÓN -->
-                <button type="submit" class="btn btn-primary w-100 mt-3">
+                <button type="submit" id="btnSubmitCrear" class="btn btn-primary w-100 mt-3">
                     Crear producto
                 </button>
             </form>
@@ -73,7 +73,7 @@
         crossorigin="anonymous"></script>
     <script src="./js/navBar.js"></script>
     <script src="./js/footer.js"></script>
-    <script src="./js/productos.js"></script>
+    <script src="./js/formCrear.js"></script>
 </body>
 
 </html>
