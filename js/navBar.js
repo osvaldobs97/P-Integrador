@@ -20,7 +20,7 @@ header.innerHTML = `
       <li class="nav-item"><a class="nav-link" href="acercaDe.html">Acerca de nosotros</a></li>
     </ul>
 
-    <div class="text-end">
+    <div class="col-md-1 text-end">
       <!-- login / carrito -->
     </div>
   </div>

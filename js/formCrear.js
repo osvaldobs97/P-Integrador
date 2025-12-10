@@ -1,6 +1,7 @@
 //formulario crear producto
 const alertValidacionesContainer = document.getElementById("alertValidacionesContainer");
 const btnSubmitCrear = document.getElementById("btnSubmitCrear");
+const btnLimpiar = document.getElementById("btnLimpiar");
 const txtNombreCrear = document.getElementById("inputNombreCrear");
 const txtPrecioCrear = document.getElementById("inputPrecioCrear");
 const txtDescripcionCrear = document.getElementById("inputDescripcionCrear");
@@ -12,15 +13,13 @@ function validarTextoProd(valor) {
 };
 
 function validarPrecioProd(valor) {
-    if (!/^\d+$/.test(valor)) return false;
     const numero = Number(valor);
-    return numero > 1;
-};
+    return !isNaN(numero) && numero > 1;
+}
 
 function validarURLProd(valor) {
-    const regex = /^(https?:\/\/)[^\s/$.?#].[^\s]*$/i;
-    return regex.test(valor.trim());
-};
+    return valor.trim() !== "";
+}
 
 function mostrarErrores(listaErrores) {
     alertValidacionesContainer.innerHTML = "";
@@ -34,39 +33,53 @@ function mostrarErrores(listaErrores) {
     alertValidacionesContainer.insertAdjacentHTML("beforeend", htmlErrores);
 }
 
-btnSubmitCrear.addEventListener("click", (event) => {
-    event.preventDefault();
+function validarFormularioCrear() {
+    let errores = [];
+
     txtNombreCrear.style.border = "";
     txtPrecioCrear.style.border = "";
     txtDescripcionCrear.style.border = "";
     txtImagenCrear.style.border = "";
     alertValidacionesContainer.innerHTML = "";
 
-    let errores = [];
-
     if (!validarTextoProd(txtNombreCrear.value)) {
-        txtNombreCrear.style.border = "solid medium red";
-        errores.push("El nombre no puede estar vació.");
-    };
+        txtNombreCrear.style.border = "2px solid red";
+        errores.push("El nombre no puede estar vacío.");
+    }
 
     if (!validarPrecioProd(txtPrecioCrear.value)) {
-        txtPrecioCrear.style.border = "solid medium red";
+        txtPrecioCrear.style.border = "2px solid red";
         errores.push("El precio debe ser mayor a 1.");
-    };
+    }
 
     if (!validarTextoProd(txtDescripcionCrear.value)) {
-        txtDescripcionCrear.style.border = "solid medium red";
+        txtDescripcionCrear.style.border = "2px solid red";
         errores.push("La descripción no puede estar vacía.");
     }
 
     if (!validarURLProd(txtImagenCrear.value)) {
-        txtImagenCrear.style.border = "solid medium red";
-        errores.push("El URL debe ser un URL válido.");
+        txtImagenCrear.style.border = "2px solid red";
+        errores.push("La imagen es obligatoria.");
     }
 
     if (errores.length > 0) {
         mostrarErrores(errores);
-        return;
-    };
+        return false;
+    }
 
+    return true;
+}
+
+btnLimpiar.addEventListener("click", (event) => {
+    event.preventDefault();
+    txtNombreCrear.value = "";
+    txtNombreCrear.focus();
+    txtPrecioCrear.value = "";
+    txtDescripcionCrear.value = "";
+    txtImagenCrear.value = "";
+    txtNombreCrear.style.border = "";
+    txtPrecioCrear.style.border = "";
+    txtDescripcionCrear.style.border = "";
+    txtImagenCrear.style.border = "";
+    alertValidacionesContainer.innerHTML = "";
 });
