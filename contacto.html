@@ -30,51 +30,54 @@
 
         <div class="row justify-content-center gy-4 gx-lg-5 align-items-stretch">
             <!-- Columna izquierda - form -->
-            <div class="col-md-6 p-4 rounded custom-form-bg">
-                <h2 class="text-center mb-4">Contáctanos</h2>
-                <div class="alert alert-danger fade show" style="display:none;" role="alert" id="alertValidaciones">
-                    <p id="alertValidacionesTexto"></p>
+            <div class="col-md-6">
+                <div class="p-4 rounded custom-form-bg h-100">
+                    <h2 class="text-center mb-4">Contáctanos</h2>
+                    <div class="alert alert-danger fade show" style="display:none;" role="alert" id="alertValidaciones">
+                        <p id="alertValidacionesTexto"></p>
+                    </div>
+                    <form id="formularioContacto">
+                        <div class="mb-3">
+                            <label for="inputNombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="inputNombre" placeholder="Ej: Juan Pérez">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputCorreo" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="inputCorreo" placeholder="correo@example.com">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputTelefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="inputTelefono" placeholder="5500333222">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputMensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="inputMensaje" rows="3"
+                                placeholder="Platícanos qué necesitas y con gusto te ayudamos."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar</button>
+                        <button type="button" class="btn btn-secondary " id="btnClear">Limpiar todo</button>
+                    </form>
                 </div>
-                <form id="formularioContacto">
-                    <div class="mb-3">
-                        <label for="inputNombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Ej: Juan Pérez">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="inputCorreo" class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="inputCorreo" placeholder="correo@example.com">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="inputTelefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="inputTelefono" placeholder="5500333222">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="inputMensaje" class="form-label">Mensaje</label>
-                        <textarea class="form-control" id="inputMensaje" rows="3"
-                            placeholder="Platícanos qué necesitas y con gusto te ayudamos."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar</button>
-                    <button type="button" class="btn btn-secondary " id="btnClear">Limpiar todo</button>
-                </form>
             </div>
-
             <!-- Columna derecha - Mapa -->
-            <div class="col-md-6 p-4 rounded custom-form-bg">
-                <h2 class="text-center mb-4">Ubicación</h2>
-                <!-- <iframe
+            <div class="col-md-6">
+                <div class="p-4 rounded custom-form-bg h-100">
+                    <h2 class="text-center mb-4">Ubicación</h2>
+                    <!-- <iframe
                     src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3760.906060250465!2d-99.133262!3d19.502677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMwJzA5LjYiTiA5OcKwMDcnNTkuNyJX!5e0!3m2!1ses-419!2smx!4v1764109313898!5m2!1ses-419!2smx"
                     width="100%" height="380" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe> -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d12650.139367690053!2d-99.13317125045668!3d19.502553323405113!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMwJzA5LjYiTiA5OcKwMDcnNTkuNyJX!5e0!3m2!1ses-419!2smx!4v1764827436064!5m2!1ses-419!2smx"
-                    width="100%" height="380" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <p>Juan de Dios Bátiz s/n, Gustavo A. Madero, San Pedro Zacatenco, 07700 Ciudad de México, CDMX</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d12650.139367690053!2d-99.13317125045668!3d19.502553323405113!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDMwJzA5LjYiTiA5OcKwMDcnNTkuNyJX!5e0!3m2!1ses-419!2smx!4v1764827436064!5m2!1ses-419!2smx"
+                        width="100%" height="380" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p>Juan de Dios Bátiz s/n, Gustavo A. Madero, San Pedro Zacatenco, 07700 Ciudad de México, CDMX</p>
+                </div>
             </div>
         </div>
         </div>
