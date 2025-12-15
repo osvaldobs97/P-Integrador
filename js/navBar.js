@@ -21,8 +21,8 @@ header.innerHTML = `
     </ul>
 
   <div class="col-md-3 text-end">
-      <a href="login.html" class="btn btn-outline-light me-2">Login</a>
-      <a href="registro.html" class="btn btn-primary">Registrarse</a>
+      <a href="login.html" id="btnLogin" class="btn btn-outline-light me-2">Login</a>
+      <a href="registro.html" id="btnRegistro" class="btn btn-primary">Registrarse</a>
     </div>
   </div>
 </nav>
