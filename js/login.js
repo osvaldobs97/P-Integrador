@@ -1,50 +1,55 @@
-const btnLogin = document.getElementById("btnLogin");
-const btnRegistro = document.getElementById("btnRegistro");
-const botonAcceder = document.getElementById("btnAcceder");
+const usuario = document.getElementById("username");
+const contra = document.getElementById("password");
+const alertLogin = document.getElementById("alertLogin");
+const alertTextoLogin = document.getElementById("alertTextoLogin");
+const btnAcceder = document.getElementById("btnAcceder");
 
-botonAcceder.addEventListener("click", (event) {
+
+btnAcceder.addEventListener("click", function (event) {
     event.preventDefault();
-    const email = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
 
-    //OSVALDO CAMBIAR RECORDATORIO CUANDO SE PONGA A CHAMBIAR
-    const emailValido = validarEmail(email);
-    const passValido = validarPassword(password);
-    //OSVALDO CAMBIAR RECORDATORIO CUANDO SE PONGA A CHAMBIAR
+    const usuariosGuardados = localStorage.getItem("usuariosReg");
 
-    if (emailValido && passValido) {
-        const usuario = {
-            nombre: "Omar",
-            email: email
-        }
-        
-        localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
 
-        window.location.href = "index.html";
+    if (!usuariosGuardados) {
+        alertTextoLogin.innerHTML = "<strong>Usuario no registrado, Registrate para comenzar.</strong>";
+        alertLogin.style.display = "block";
+        return;
+    }
+    const usuarios = JSON.parse(usuariosGuardados);
+    const emailIngresado = usuario.value;
+    const contraIngresada = contra.value;
+
+    const usuarioEncontrado = usuarios.find(user =>
+        user.correo === emailIngresado &&
+        user.contraseña === contraIngresada);
+
+
+    if (usuarioEncontrado) {
+        Swal.fire({
+            icon: "success",
+            title: "¡Bienvenido!",
+            text: "Inicio de sesión exitoso",
+            confirmButtonText: "Continuar"
+        }).then(() => {
+            window.location.href = "index.html";
+        });
+
+
+    } else {
+        usuario.style.border = "solid medium red";
+        contra.style.border = "solid medium red";
+        alertTextoLogin.innerHTML = "<strong>Correo o contraseña incorrectos.</strong>";
+        alertLogin.style.display = "block";
     }
 });
 
-function actualizarBtnsNav() {
-    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
-
-    if (usuario) {
-        btnLogin.textContent = usuario.nombre;
-        btnRegistro.textContent = "Cerrar sesión"
-
-        btnRegistro.addEventListener("click", cerrarSesion);
-    } else {
-        btnLogin.textContent = "Login";
-        btnLogin.href = "login.html";
-
-        btnRegistro.textContent = "Reistrarse"
-        btnRegistro.href = "registro.html"
-    }
-
-
+function limpiarAlert() {
+    alertLogin.style.display = "none";
+    usuario.style.border = "";
+    contra.style.border = "";
 }
 
-function cerrarSesion (event) {
-    event.preventDefault();
-    localStorage.removeItem("usuarioLogueado");
-    actualizarBtnsNav();
-}
+usuario.addEventListener("focus", limpiarAlert);
+contra.addEventListener("focus", limpiarAlert);
+alertLogin.addEventListener("focus", limpiarAlert);
