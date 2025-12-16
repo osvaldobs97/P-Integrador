@@ -1,0 +1,189 @@
+
+
+.display-area {
+    background: radial-gradient(circle at top, #143a73 0, #00132b 45%, #000814 100%);
+    min-height: 50vh; 
+    display: flex;       
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    background-color: radial-gradient(circle at top, #143a73 0, #00132b 45%, #000814 100%);
+    z-index: 10;
+}
+
+
+.upload-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.upload-btn-label {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    transition: 0.3s;
+    
+    box-sizing: border-box;
+}
+
+.upload-btn-label:hover {
+    background-color: #FF204E;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #bdc3c7;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    width: 100%;
+}
+
+
+.nav-btn.active {
+    background-color: #FF204E;
+    color: white;
+    font-weight: bold;
+}
+
+/* mockups  */
+
+.product-view {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-view.active {
+    display: flex;
+}
+
+.mockup-wrapper {
+    position: relative;
+    
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.base-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+.design-overlay {
+    position: absolute;
+    object-fit: contain; 
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+
+
+/* agenda */
+.overlay-agenda {
+    top: 30%;
+    left: 30%;
+    width: 36.6%;  
+    height: 36.6%; 
+}
+
+/* bolsa */
+.overlay-bolsa {
+    top: 46.6%;
+    left: 31.6%;
+    width: 36.6%; /* 220 */
+    height: 36.6%;
+    opacity: 0.9;
+}
+
+/* taza*/
+.overlay-taza {
+    top: 27.8%;
+    left: 28.5%;
+    width: 40%;    
+    height: 49.1%; 
+    mix-blend-mode: multiply;
+    opacity: 0.92;
+}
+
+/* gorra */
+.overlay-gorra {
+    top: 31.6%;
+    left: 28.3%;
+    width: 25%; /* 150/600 */
+    height: 25%;
+    border-radius: 15%;
+    transform: rotate(11deg);
+}
+
+/* llavero */
+.overlay-llavero {
+    top: 40.8%;
+    left: 40%;
+    width: 26.6%; 
+    height: 26.6%;
+    border-radius: 5%;
+    transform: rotate(-28deg);
+}
+
+/* playera */
+.overlay-playera {
+    top: 25%;
+    left: 33.3%;
+    width: 33.3%; 
+    height: 38.3%; 
+}
+
+/* pluma */
+.overlay-pluma {
+    top: 46.5%;
+    left: 43.5%;
+    width: 3.3%; 
+    height: 3.3%;
+    transform: rotate(-23deg);
+}
+
+/* taza magica */
+.overlay-taza-magica {
+    top: 27.8%;
+    left: 28.5%;
+    width: 40%;
+    height: 49.1%;
+    mix-blend-mode: normal;
+    opacity: 0.92;
+}
+
+/* termo */
+.overlay-termo {
+    top: 26.6%;
+    left: 33.3%;
+    width: 30.8%; 
+    height: 30.8%;
+    opacity: 0.9;
+}
+
+/* sudadera */
+.overlay-sudadera {
+    top: 41.3%;
+    left: 38.3%;
+    width: 23.3%; 
+    height: 23.3%;
+}
