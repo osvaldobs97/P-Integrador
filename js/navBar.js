@@ -27,3 +27,33 @@ header.innerHTML = `
   </div>
 </nav>
 `;
+
+function actualizarBtnsNav() {
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+    if (usuario) {
+        btnLogin.textContent = usuario.nombre;
+        btnLogin.href = "#";
+
+        btnRegistro.textContent = "Cerrar sesión";
+        btnRegistro.href = "#";
+
+        btnRegistro.addEventListener("click", cerrarSesion);
+    } else {
+        btnLogin.textContent = "Login";
+        btnLogin.href = "login.html";
+
+        btnRegistro.textContent = "Reistrarse";
+        btnRegistro.href = "registro.html";
+    }
+}
+
+function cerrarSesion (event) {
+    event.preventDefault();
+    localStorage.removeItem("usuarioLogueado");
+    actualizarBtnsNav();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarBtnsNav();
+})
