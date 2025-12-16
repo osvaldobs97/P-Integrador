@@ -95,29 +95,49 @@ html{
 
 /*=FORMULARIOS=*/
 
+#formCrear{
+background: #ffffff15;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    width: 80%;        
+    max-width: 600px;  
+    margin: 0 auto;    
+    padding: 20px;     
+    border-radius: 12px; 
+    
+}
+
 .custom-form-bg {
+    background: #ffffff15;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.custom-form-bg .form-control,
+.custom-form-bg textarea {
+    border-radius: 10px;
+    border: 2px solid #eedfe3;
+    background: #f8faffce;
+    transition: all .25s ease;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.custom-form-bg .form-control:focus,
+.custom-form-bg textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.20);
     background: #ffffff;
-    color: #222222;
-}
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 1.5rem;
-
 }
 
-.custom-form-bg h2 {
-    color: #001633;
-}
 
-.form-narrow{
-    max-width: 600px;   
-    margin: 0 auto;
-}
-
-iframe {
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+/* Mapa */
+.custom-form-bg iframe {
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 @media (max-width: 768px) {
@@ -130,6 +150,19 @@ iframe {
     .card img {
         height: 400px;
     }
+    #formCrear{
+    background: #ffffff15;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    width: 95%;        
+    max-width: 600px;  
+    margin: 0 auto;    
+    padding: 10px;     
+    border-radius: 12px; 
+    
+}
 }
 /* card-lista-valores */
 @media (max-width: 993px) {
@@ -140,3 +173,5 @@ iframe {
     display: inline;
     }
 }
+
+

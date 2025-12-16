@@ -20,8 +20,9 @@ header.innerHTML = `
       <li class="nav-item"><a class="nav-link" href="acercaDe.html">Acerca de nosotros</a></li>
     </ul>
 
-    <div class="col-md-1 text-end">
-      <!-- login / carrito -->
+  <div class="col-md-3 text-end">
+      <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+      <a href="registro.html" class="btn btn-primary">Registrarse</a>
     </div>
   </div>
 </nav>
