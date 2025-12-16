@@ -16,12 +16,12 @@ html {
 }
 
 body {
- background: radial-gradient(circle at top, #143a73 0, #00132b 45%, #000814 100%);
+    background: radial-gradient(circle at top, #143a73 0, #00132b 45%, #000814 100%);
     color: #ffffff;
     font-family: var(--textFont);
 }
 
-h1{
+h1 {
     font-family: var(--titlesFont);
     color: #ffffff;
     text-align: center;
@@ -49,8 +49,139 @@ h5 {
     h3 {
         font-size: 1.6rem;
     }
-    .custom-form-bg{
+
+    .custom-form-bg {
         padding: 20px;
     }
 }
 
+
+.contInicio {
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Texto descriptivo */
+.desInicio {
+    max-width: 380px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.sCard {
+    position: relative;
+    background: #ffffff15;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+/* borde degradado */
+.sCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.6),
+        rgba(255,255,255,0.1),
+        rgba(255,255,255,0.6)
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.sCard,
+.logo-box {
+    min-height: 220px;
+    transition: box-shadow 0.3s ease;
+}
+
+.imgCarrusel {
+    width: 100%;
+    max-width: 180px;
+    object-fit: contain;
+
+}
+
+.titulosC {
+    font-size: 55px;
+    font-weight: 600;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #FF204E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* boton */
+.btn {
+    background-color: #FF204E;
+    color: #fff;
+    border: none;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    background: #FF204E;
+    color: #fff;
+    box-shadow: none;
+}
+
+
+
+.titulo {
+    font-size: 65px;
+    font-weight: 600;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffffff, #FF204E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.type-text::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+    padding: 10px;
+    cursor: default;
+}
