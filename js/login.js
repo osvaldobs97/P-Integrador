@@ -3,6 +3,8 @@ const contra = document.getElementById("password");
 const alertLogin = document.getElementById("alertLogin");
 const alertTextoLogin = document.getElementById("alertTextoLogin");
 const btnAcceder = document.getElementById("btnAcceder");
+const btnLogin = document.getElementById("btnLogin");
+const btnRegistro = document.getElementById("btnRegistro");
 
 
 btnAcceder.addEventListener("click", function (event) {
@@ -26,6 +28,12 @@ btnAcceder.addEventListener("click", function (event) {
 
 
     if (usuarioEncontrado) {
+        const usuarioLogueado = {
+            nombre: usuarioEncontrado.nombre,
+            email: usuarioEncontrado.correo
+        }
+        localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
+
         Swal.fire({
             icon: "success",
             title: "¡Bienvenido!",
@@ -53,3 +61,31 @@ function limpiarAlert() {
 usuario.addEventListener("focus", limpiarAlert);
 contra.addEventListener("focus", limpiarAlert);
 alertLogin.addEventListener("focus", limpiarAlert);
+
+/*
+
+const botonAcceder = document.getElementById("btnAcceder");
+
+botonAcceder.addEventListener("click", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    //OSVALDO CAMBIAR RECORDATORIO CUANDO SE PONGA A CHAMBIAR
+    const emailValido = validarEmail(email);
+    const passValido = validarPassword(password);
+    //OSVALDO CAMBIAR RECORDATORIO CUANDO SE PONGA A CHAMBIAR
+
+    if (emailValido && passValido) {
+        const usuario = {
+            nombre: "Omar",
+            email: email
+        }
+        
+        localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
+
+        window.location.href = "index.html";
+    }
+});
+
+*/

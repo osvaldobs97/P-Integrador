@@ -1,6 +1,7 @@
 //boton
 const btnSubmit = document.getElementById("btnSubmit");
 const btnClear = document.getElementById("btnClear");
+const btnAcceder = document.getElementById("btnAcceder");
 //campos llenado
 const txtNombre = document.getElementById("inputNombre");
 const txtCorreo = document.getElementById("inputCorreo");
@@ -11,11 +12,10 @@ const alertValidaciones = document.getElementById("alertValidaciones");
 //formulario
 const formularioContacto = document.getElementById("formularioContacto");
 
-
 //Correos
 //Iniciar EmailJS
 (function () {
-    emailjs.init("EXX6miCFreEdge_mH");  // <- reemplaza
+    emailjs.init("EXX6miCFreEdge_mH");
 })();
 //Correos
 
