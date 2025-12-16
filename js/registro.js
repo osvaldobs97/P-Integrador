@@ -5,8 +5,8 @@ const btnClear = document.getElementById("btnClearReg");
 const txtNombre = document.getElementById("inputNombreReg");
 const txtTelefono = document.getElementById("inputTelefonoReg");
 const txtCorreo = document.getElementById("inputCorreoReg");
-const inputContraseñaReg=document.getElementById("inputContraseñaReg");
-const inputContraseñaReg2=document.getElementById("inputContraseñaReg2");
+const inputContraseñaReg = document.getElementById("inputContraseñaReg");
+const inputContraseñaReg2 = document.getElementById("inputContraseñaReg2");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTextoReg");
 const alertValidaciones = document.getElementById("alertValidacionesReg");
 //formulario
@@ -30,9 +30,9 @@ function validarTelefono(telefono) {
     return regex.test(telefono.trim());
 }
 
-function validarContraseña(contraseña){
+function validarContraseña(contraseña) {
     //Al menos 6 caracteres, una mayúscula, una minúscula, un número y un carácter especial
-    const regex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     return regex.test(contraseña);
 }
 
@@ -71,7 +71,7 @@ btnSubmitReg.addEventListener("click", function (event) {
         isValid = false;
     }
 
-    
+
 
     if (!validarContraseña(inputContraseñaReg.value)) {
         inputContraseñaReg.style.border = "solid medium red";
@@ -89,21 +89,23 @@ btnSubmitReg.addEventListener("click", function (event) {
 
     if (isValid) {
 
-        Swal.fire({
-            icon: "success",
-            title: "¡Registro exitoso!",
-            text: " .",
-        });
-
         let usuario = {
             "nombre": inputNombreReg.value,
             "telefono": inputTelefonoReg.value,
             "correo": inputCorreoReg.value,
             "contraseña": inputContraseñaReg.value
         };
-        
+
         usuariosReg.push(usuario);
         localStorage.setItem("usuariosReg", JSON.stringify(usuariosReg));
+        Swal.fire({
+            icon: "success",
+            title: "¡Bienvenido!",
+            text: "Usuario registrado exitosamente",
+            confirmButtonText: "Continuar"
+        }).then(() => {
+            window.location.href = "login.html";
+        });
 
         formularioRegistro.reset();
     }//isValid

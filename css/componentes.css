@@ -81,8 +81,9 @@ html{
 .btn-primary:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
+    box-shadow: 0 0 12px rgba(202, 0, 57, 0.991);
+    transform: translateY(-1px);
 }
-
 .btn-outline-light {
     border-color: #ffffff;
     color: #ffffff;

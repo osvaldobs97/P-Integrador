@@ -3,7 +3,7 @@ const header = document.getElementById("navBar");
 header.innerHTML = `
 <nav class="navbar navbar-expand-md navbar-dark px-3">
   <a class="navbar-brand d-flex align-items-center mx-auto mx-md-0" href="index.html">
-    <img src="./assets/logo.webp" width="50" height="50" class="me-2" alt="Logo UniversalCopy">
+    <img src="./assets/logo.webp" width="50" height="50" class="me-2">
     UniversalCopy
   </a>
 
@@ -20,40 +20,46 @@ header.innerHTML = `
       <li class="nav-item"><a class="nav-link" href="acercaDe.html">Acerca de nosotros</a></li>
     </ul>
 
-  <div class="col-md-3 text-end">
-      <a href="login.html" id="btnLogin" class="btn btn-outline-light me-2">Login</a>
-      <a href="registro.html" id="btnRegistro" class="btn btn-primary">Registrarse</a>
+    <div class="text-end">
+      <a id="btnLogin" href="login.html" class="btn btn-outline-light me-2">Login</a>
+      <a id="btnRegistro" href="registro.html" class="btn btn-primary me-2">Registrarse</a>
+
+      <span id="bienvenida" class="text-light fw-semibold me-2" style="display:none"></span>
+      <button id="btnLogout" class="btn btn-primary" style="display:none">Salir</button>
     </div>
   </div>
 </nav>
 `;
 
+const btnLogin = header.querySelector("#btnLogin");
+const btnRegistro = header.querySelector("#btnRegistro");
+const btnLogout = header.querySelector("#btnLogout");
+const bienvenida = header.querySelector("#bienvenida");
+
 function actualizarBtnsNav() {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
     if (usuario) {
-        btnLogin.textContent = usuario.nombre;
-        btnLogin.href = "#";
+        btnLogin.style.display = "none";
+        btnRegistro.style.display = "none";
 
-        btnRegistro.textContent = "Cerrar sesión";
-        btnRegistro.href = "#";
+        bienvenida.style.display = "inline";
+        bienvenida.textContent = `Bienvenido, ${usuario.nombre}`;
 
-        btnRegistro.addEventListener("click", cerrarSesion);
+        btnLogout.style.display = "inline";
     } else {
-        btnLogin.textContent = "Login";
-        btnLogin.href = "login.html";
+        btnLogin.style.display = "inline";
+        btnRegistro.style.display = "inline";
 
-        btnRegistro.textContent = "Reistrarse";
-        btnRegistro.href = "registro.html";
+        bienvenida.style.display = "none";
+        btnLogout.style.display = "none";
     }
 }
 
-function cerrarSesion (event) {
-    event.preventDefault();
+btnLogout.addEventListener("click", () => {
     localStorage.removeItem("usuarioLogueado");
     actualizarBtnsNav();
-}
+    window.location.href = "login.html";
+});
 
-document.addEventListener("DOMContentLoaded", () => {
-    actualizarBtnsNav();
-})
+document.addEventListener("DOMContentLoaded", actualizarBtnsNav);

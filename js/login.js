@@ -3,8 +3,7 @@ const contra = document.getElementById("password");
 const alertLogin = document.getElementById("alertLogin");
 const alertTextoLogin = document.getElementById("alertTextoLogin");
 const btnAcceder = document.getElementById("btnAcceder");
-const btnLogin = document.getElementById("btnLogin");
-const btnRegistro = document.getElementById("btnRegistro");
+
 
 
 btnAcceder.addEventListener("click", function (event) {
@@ -18,14 +17,28 @@ btnAcceder.addEventListener("click", function (event) {
         alertLogin.style.display = "block";
         return;
     }
-    const usuarios = JSON.parse(usuariosGuardados);
-    const emailIngresado = usuario.value;
-    const contraIngresada = contra.value;
+    const emailIngresado = usuario.value.trim();
+    const contraIngresada = contra.value.trim();
+
+    if (!emailIngresado || !contraIngresada) {
+        alertTextoLogin.innerHTML = "<strong>Llena todos los campos.</strong>";
+        alertLogin.style.display = "block";
+        return;
+    }
+    
+    let usuarios;
+    try {
+    usuarios = JSON.parse(usuariosGuardados);
+    } catch {
+    localStorage.removeItem("usuariosReg");
+    alertTextoLogin.innerHTML = "<strong>Error en los datos. Registrate nuevamente.</strong>";
+    alertLogin.style.display = "block";
+    return;
+}
 
     const usuarioEncontrado = usuarios.find(user =>
         user.correo === emailIngresado &&
         user.contraseña === contraIngresada);
-
 
     if (usuarioEncontrado) {
         const usuarioLogueado = {
@@ -61,31 +74,3 @@ function limpiarAlert() {
 usuario.addEventListener("focus", limpiarAlert);
 contra.addEventListener("focus", limpiarAlert);
 alertLogin.addEventListener("focus", limpiarAlert);
-
-/*
-
-const botonAcceder = document.getElementById("btnAcceder");
-
-botonAcceder.addEventListener("click", (event) => {
-    event.preventDefault();
-    const email = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    //OSVALDO CAMBIAR RECORDATORIO CUANDO SE PONGA A CHAMBIAR
-    const emailValido = validarEmail(email);
-    const passValido = validarPassword(password);
-    //OSVALDO CAMBIAR RECORDATORIO CUANDO SE PONGA A CHAMBIAR
-
-    if (emailValido && passValido) {
-        const usuario = {
-            nombre: "Omar",
-            email: email
-        }
-        
-        localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
-
-        window.location.href = "index.html";
-    }
-});
-
-*/
