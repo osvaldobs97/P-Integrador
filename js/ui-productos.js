@@ -20,7 +20,7 @@ function crearCards(productos) {
             <h5 class="card-title">${producto.nombre}</h5>
             <p class="card-text flex-grow-1">${producto.descripcion}</p>
             <p class="fw-bold mb-2">Desde $${producto.precio} MXN</p>
-            <button class="btn btn-primary mt-auto">Personalizar</button>
+            <a href="personalizar.html" class="btn btn-primary mt-auto">Personalizar</a>
           </div>
         </div>
       </div>

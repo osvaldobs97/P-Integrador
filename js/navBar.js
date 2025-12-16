@@ -16,6 +16,7 @@ header.innerHTML = `
       <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
       <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
       <li class="nav-item"><a class="nav-link" href="formCrear.html">Crear</a></li>
+      <li class="nav-item"><a class="nav-link" href="personalizar.html">Personalizar</a></li>
       <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
       <li class="nav-item"><a class="nav-link" href="acercaDe.html">Acerca de nosotros</a></li>
     </ul>
@@ -37,29 +38,29 @@ const btnLogout = header.querySelector("#btnLogout");
 const bienvenida = header.querySelector("#bienvenida");
 
 function actualizarBtnsNav() {
-    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+  const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
-    if (usuario) {
-        btnLogin.style.display = "none";
-        btnRegistro.style.display = "none";
+  if (usuario) {
+    btnLogin.style.display = "none";
+    btnRegistro.style.display = "none";
 
-        bienvenida.style.display = "inline";
-        bienvenida.textContent = `Bienvenido, ${usuario.nombre}`;
+    bienvenida.style.display = "inline";
+    bienvenida.textContent = `Bienvenido, ${usuario.nombre}`;
 
-        btnLogout.style.display = "inline";
-    } else {
-        btnLogin.style.display = "inline";
-        btnRegistro.style.display = "inline";
+    btnLogout.style.display = "inline";
+  } else {
+    btnLogin.style.display = "inline";
+    btnRegistro.style.display = "inline";
 
-        bienvenida.style.display = "none";
-        btnLogout.style.display = "none";
-    }
+    bienvenida.style.display = "none";
+    btnLogout.style.display = "none";
+  }
 }
 
 btnLogout.addEventListener("click", () => {
-    localStorage.removeItem("usuarioLogueado");
-    actualizarBtnsNav();
-    window.location.href = "login.html";
+  localStorage.removeItem("usuarioLogueado");
+  actualizarBtnsNav();
+  window.location.href = "login.html";
 });
 
 document.addEventListener("DOMContentLoaded", actualizarBtnsNav);
