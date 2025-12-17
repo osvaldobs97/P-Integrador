@@ -3,72 +3,73 @@ const contra = document.getElementById("password");
 const alertLogin = document.getElementById("alertLogin");
 const alertTextoLogin = document.getElementById("alertTextoLogin");
 const btnAcceder = document.getElementById("btnAcceder");
-
-
+const USERS_KEY = "usuariosReg";
 
 btnAcceder.addEventListener("click", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const usuariosGuardados = localStorage.getItem("usuariosReg");
+  const usuariosGuardados = localStorage.getItem(USERS_KEY);
 
-
-    if (!usuariosGuardados) {
-        alertTextoLogin.innerHTML = "<strong>Usuario no registrado, Registrate para comenzar.</strong>";
-        alertLogin.style.display = "block";
-        return;
-    }
-    const emailIngresado = usuario.value.trim();
-    const contraIngresada = contra.value.trim();
-
-    if (!emailIngresado || !contraIngresada) {
-        alertTextoLogin.innerHTML = "<strong>Llena todos los campos.</strong>";
-        alertLogin.style.display = "block";
-        return;
-    }
-    
-    let usuarios;
-    try {
-    usuarios = JSON.parse(usuariosGuardados);
-    } catch {
-    localStorage.removeItem("usuariosReg");
-    alertTextoLogin.innerHTML = "<strong>Error en los datos. Registrate nuevamente.</strong>";
+  if (!usuariosGuardados) {
+    alertTextoLogin.innerHTML =
+      "<strong>Usuario no registrado, Registrate para comenzar.</strong>";
     alertLogin.style.display = "block";
     return;
-}
+  }
+  const emailIngresado = usuario.value.trim().toLowerCase();
+  const contraIngresada = contra.value.trim();
 
-    const usuarioEncontrado = usuarios.find(user =>
-        user.correo === emailIngresado &&
-        user.contraseña === contraIngresada);
+  if (!emailIngresado || !contraIngresada) {
+    alertTextoLogin.innerHTML = "<strong>Llena todos los campos.</strong>";
+    alertLogin.style.display = "block";
+    return;
+  }
 
-    if (usuarioEncontrado) {
-        const usuarioLogueado = {
-            nombre: usuarioEncontrado.nombre,
-            email: usuarioEncontrado.correo
-        }
-        localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
+  let usuarios;
+  try {
+    usuarios = JSON.parse(usuariosGuardados);
+  } catch {
+    localStorage.removeItem("usuariosReg");
+    alertTextoLogin.innerHTML =
+      "<strong>Error en los datos. Registrate nuevamente.</strong>";
+    alertLogin.style.display = "block";
+    return;
+  }
 
-        Swal.fire({
-            icon: "success",
-            title: "¡Bienvenido!",
-            text: "Inicio de sesión exitoso",
-            confirmButtonText: "Continuar"
-        }).then(() => {
-            window.location.href = "index.html";
-        });
+  const usuarioEncontrado = usuarios.find(
+    (user) =>
+      user.correo.trim().toLowerCase() === emailIngresado &&
+      user.contraseña === contraIngresada
+  );
 
+  if (usuarioEncontrado) {
+    const usuarioLogueado = {
+      nombre: usuarioEncontrado.nombre,
+      email: usuarioEncontrado.correo,
+    };
+    localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
 
-    } else {
-        usuario.style.border = "solid medium red";
-        contra.style.border = "solid medium red";
-        alertTextoLogin.innerHTML = "<strong>Correo o contraseña incorrectos.</strong>";
-        alertLogin.style.display = "block";
-    }
+    Swal.fire({
+      icon: "success",
+      title: "¡Bienvenido!",
+      text: "Inicio de sesión exitoso",
+      confirmButtonText: "Continuar",
+    }).then(() => {
+      window.location.href = "index.html";
+    });
+  } else {
+    usuario.style.border = "solid medium red";
+    contra.style.border = "solid medium red";
+    alertTextoLogin.innerHTML =
+      "<strong>Correo o contraseña incorrectos.</strong>";
+    alertLogin.style.display = "block";
+  }
 });
 
 function limpiarAlert() {
-    alertLogin.style.display = "none";
-    usuario.style.border = "";
-    contra.style.border = "";
+  alertLogin.style.display = "none";
+  usuario.style.border = "";
+  contra.style.border = "";
 }
 
 usuario.addEventListener("focus", limpiarAlert);

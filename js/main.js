@@ -70,7 +70,7 @@ btnSubmit.addEventListener("click", function (event) {
 
     if (!validarTelefono(txtTelefono.value)) {
         txtTelefono.style.border = "solid medium red";
-        alertValidacionesTexto.innerHTML += "<strong>Teléfono invalido. Formato a 10 números y sin guiones.</strong><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>Teléfono inválido. Formato a 10 números y sin guiones.</strong><br/>";
         alertValidaciones.style.display = "block";
         isValid = false;
     }
