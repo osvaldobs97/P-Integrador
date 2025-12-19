@@ -17,6 +17,13 @@ const formularioContacto = document.getElementById("formularioRegistro");
 const USERS_KEY = "usuariosReg";
 let usuariosReg = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 
+function correoYaRegistrado(email) {
+  const emailLimpio = email.trim().toLowerCase();
+  return usuariosReg.some(
+    (u) => (u.correo || "").trim().toLowerCase() === emailLimpio
+  );
+}
+
 function validarNombre(nombre) {
   const regex =
     /^[-a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:\W+[-a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+){1,5}(?:\W+[-\s[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]]+)?$/;
@@ -42,7 +49,7 @@ function validarContraseña(contraseña) {
   return regex.test(contraseña);
 }
 
-btnSubmitReg.addEventListener("click", function (event) {
+btnSubmit.addEventListener("click", function (event) {
   event.preventDefault();
   //Bandera
   let isValid = true;
@@ -70,13 +77,22 @@ btnSubmitReg.addEventListener("click", function (event) {
     isValid = false;
   }
 
-  if (!validarEmail(inputCorreoReg.value)) {
-    inputCorreoReg.style.border = "solid medium red";
-    alertValidacionesTextoReg.innerHTML +=
+ const correo = txtCorreo.value.trim().toLowerCase();
+
+if (!validarEmail(correo) || correoYaRegistrado(correo)) {
+  txtCorreo.style.border = "solid medium red";
+
+  if (!validarEmail(correo)) {
+    alertValidacionesTexto.innerHTML +=
       "<strong>Correo inválido. Verifique el formato.</strong><br/>";
-    alertValidacionesReg.style.display = "block";
-    isValid = false;
+  } else {
+    alertValidacionesTexto.innerHTML +=
+      "<strong>Este correo ya está registrado. Usa otro.</strong><br/>";
   }
+
+  alertValidaciones.style.display = "block";
+  isValid = false;
+}
 
   if (!validarContraseña(inputContraseñaReg.value)) {
     inputContraseñaReg.style.border = "solid medium red";
@@ -95,19 +111,6 @@ btnSubmitReg.addEventListener("click", function (event) {
   }
 
   if (isValid) {
-    const correoIngresado = txtCorreo.value.trim().toLowerCase();
-
-    const correoExiste = usuariosReg.some(
-      (u) => (u.correo || "").trim().toLowerCase() === correoIngresado
-    );
-
-    if (correoExiste) {
-      txtCorreo.style.border = "solid medium red";
-      alertValidacionesTexto.innerHTML =
-        "<strong>Este correo ya está registrado. Usa otro.</strong>";
-      alertValidaciones.style.display = "block";
-      return;
-    }
 
     let usuario = {
       nombre: inputNombreReg.value,
@@ -131,7 +134,7 @@ btnSubmitReg.addEventListener("click", function (event) {
   } //isValid
 });
 
-btnClearReg.addEventListener("click", function (event) {
+btnClear.addEventListener("click", function (event) {
   event.preventDefault();
   inputNombreReg.value = "";
   inputNombreReg.focus();
