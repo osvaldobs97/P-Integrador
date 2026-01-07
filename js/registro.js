@@ -115,7 +115,7 @@ if (!validarEmail(correo) || correoYaRegistrado(correo)) {
     let usuario = {
       nombre: inputNombreReg.value,
       telefono: inputTelefonoReg.value,
-      correo: correoIngresado,
+      correo: inputCorreoReg.value,
       contraseña: inputContraseñaReg.value,
     };
 
