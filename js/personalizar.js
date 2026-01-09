@@ -1,4 +1,6 @@
 
+const btnCartSidebar = document.querySelector('.btn-cart-sidebar');
+
 let globalDesignSrc = './assets/universalcopy_icon.ico';
 
 
@@ -78,3 +80,67 @@ function showProduct(itemId, btnElement) {
         }
     }
 }
+
+btnCartSidebar.addEventListener('click', function (event) {
+    event.preventDefault();
+    //Bandera
+    let bandera = true;
+    // Comprobar si el usuario ha iniciado sesión
+    if (!localStorage.getItem('usuarioLogueado')) {
+        Swal.fire({
+            title: 'Imposible añadir al carrito',
+            text: 'Solo los usuarios registrados pueden añadir productos al carrito.',
+            icon: 'info',
+            confirmButtonText: 'Registrate',
+            cancelButtonText: 'Cancelar',
+            showCancelButton: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'registro.html';
+            }
+        });
+        bandera = false;
+    }
+
+    // Comprobar si la imagen sigue siendo la por defecto
+    if (globalDesignSrc.includes('universalcopy_icon.ico')) {
+        Swal.fire({
+            icon: "info",
+            title: "¡Imposible añadir al carrito!",
+            text: "Por favor, sube una imagen para personalizar el producto.",
+            confirmButtonText: "Continuar",
+        })
+        bandera = false;
+    }
+
+    // Comprobar tamaño del archivo
+    const fileInput = document.getElementById('globalUpload');
+    if (fileInput && fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const maxSize = 2 * 1024 * 1024; // 2MB
+
+        if (file.size > maxSize) {
+            Swal.fire({
+                icon: "info",
+                title: "¡Imposible añadir al carrito!",
+                text: "La imagen es demasiado pesada. El tamaño máximo permitido es de 2MB.",
+                confirmButtonText: "Continuar",
+            })
+            bandera = false;
+        }
+    }
+
+    // Si todo es correcto
+    if (bandera) {
+        Swal.fire({
+            icon: "success",
+            title: "¡Listo!",
+            text: "Producto agregado al carrito.",
+            confirmButtonText: "Continuar",
+        })
+
+        // Agregar al carrito
+
+
+    }//
+});

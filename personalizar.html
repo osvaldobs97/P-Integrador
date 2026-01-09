@@ -124,7 +124,13 @@
                 <div class="upload-section">
                     <input type="file" id="globalUpload" accept="image/*" style="display: none;">
                     <i class="bi bi-card-image"></i>
-                    <label for="globalUpload" class="upload-btn-label w-100">Subir imagen</label>
+                    <div class="d-flex gap-2 align-items-center justify-content-center w-100">
+                        <label for="globalUpload" class="upload-btn-label flex-grow-1">Subir imagen</label>
+                        <!-- boton de agregar al carritoi -->
+                        <button class="btn-cart-sidebar">
+                            <i class="bi bi-cart-plus-fill"></i>
+                        </button>
+                    </div>
                 </div>
 
 
@@ -187,7 +193,7 @@
     <script src="./js/navBar.js"></script>
     <script src="./js/footer.js"></script>
     <script src="./js/personalizar.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
