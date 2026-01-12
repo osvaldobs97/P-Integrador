@@ -22,6 +22,7 @@ function crearCards(productos) {
             <p class="fw-bold mb-2">Desde $${producto.precio} MXN</p>
             <button class="btn btn-primary mt-auto">Personalizar</button>
             <button class="btn btn-primary mt-2">Aregar al Carrito</button>
+            <button class="btn btn-primary mt-2 btn-agregar" data-id="${producto.id}">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -29,4 +30,17 @@ function crearCards(productos) {
   });
 
   container.insertAdjacentHTML("beforeend", html);
+  activarBotonesCarrito(productos);
+
+}
+function activarBotonesCarrito(productos) {
+  const botones = document.querySelectorAll(".btn-agregar");
+
+  botones.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = Number(btn.dataset.id);
+      const producto = productos.find(p => p.id === id);
+      if (producto) window.Carrito.add(producto);
+    });
+  });
 }
