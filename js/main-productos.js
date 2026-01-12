@@ -14,3 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
         crearCards(productos);
     }
 });
+window.Carrito.init();
