@@ -1,5 +1,24 @@
 let container;
 
+function activarBotonesCarrito(productos) {
+  const botones = document.querySelectorAll(".btn-agregar");
+
+  botones.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = Number(btn.dataset.id);
+      const producto = productos.find(p => p.id === id);
+
+      const carrito = window.Carrito;
+
+      if (producto && carrito && typeof carrito.add === "function") {
+        carrito.add(producto);
+      } else {
+        console.error("Carrito no disponible", carrito);
+      }
+    });
+  });
+}
+
 function initProductosUI() {
   container = document.getElementById("cardContainer");
 }
@@ -30,16 +49,5 @@ function crearCards(productos) {
 
   container.insertAdjacentHTML("beforeend", html);
   activarBotonesCarrito(productos);
-
 }
-function activarBotonesCarrito(productos) {
-  const botones = document.querySelectorAll(".btn-agregar");
 
-  botones.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = Number(btn.dataset.id);
-      const producto = productos.find(p => p.id === id);
-      if (producto) window.Carrito.add(producto);
-    });
-  });
-}

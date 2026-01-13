@@ -1,5 +1,5 @@
 (function () {
-  const CARTS_KEY = "carritos"; 
+  const CARTS_KEY = "carritos";
 
   function getUsuarioKey() {
     const data = localStorage.getItem("usuarioLogueado");
@@ -108,7 +108,8 @@
     itemsDiv.innerHTML = "";
 
     if (cart.length === 0) {
-      itemsDiv.innerHTML = <p class="text-muted m-0">Tu carrito está vacío.</p>;
+      itemsDiv.innerHTML = `<p class="text-muted m-0">Tu carrito está vacío.</p>`;
+
     } else {
       cart.forEach(p => {
         const sub = (Number(p.precio) * p.cantidad).toFixed(2);
@@ -161,8 +162,8 @@
           else alert("Carrito vacío. Agrega productos para continuar.");
           return;
         }
-        if (window.Swal) Swal.fire("Listo", "Aquí conectarías tu pago / checkout.", "success");
-        else alert("Aquí conectarías tu pago / checkout.");
+        if (window.Swal) Swal.fire("Listo", "Metodo de pago.", "success");
+        else alert("Metodo de pago");
       });
     }
 
@@ -170,5 +171,5 @@
   }
 
   // Exponer API global
-  window.Carrito = { init, add, render };
+  window.Carrito = window.Carrito || { init, add, render };
 })();
