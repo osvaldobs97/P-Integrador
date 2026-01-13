@@ -136,10 +136,35 @@ btnCartSidebar.addEventListener('click', function (event) {
             icon: "success",
             title: "¡Listo!",
             text: "Producto agregado al carrito.",
-            confirmButtonText: "Continuar",
-        })
+            confirmButtonText: 'Ver carrito',
+            cancelButtonText: 'Seguir comprando',
+            showCancelButton: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'carrito.html';
+            }
+        });
 
         // Agregar al carrito
+        const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
+        const productoNombre = document.querySelector('.nav-btn.active').innerText;
+
+        // Crear objeto del producto
+        const nuevoProducto = {
+            usuario: usuarioLogueado.nombre,
+            correo: usuarioLogueado.correo,
+            producto: productoNombre,
+            imagen: globalDesignSrc
+        };
+
+        // Obtener carrito actual o crear uno nuevo
+        let carrito = JSON.parse(localStorage.getItem('carritoCompras')) || [];
+
+        // Añadir el nuevo producto
+        carrito.push(nuevoProducto);
+
+        // Guardar en localStorage
+        localStorage.setItem('carritoCompras', JSON.stringify(carrito));
 
 
     }//
