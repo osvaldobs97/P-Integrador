@@ -37,9 +37,20 @@ function activarBotonesCarrito(productos) {
 
   botones.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const id = Number(btn.dataset.id);
-      const producto = productos.find(p => p.id === id);
-      if (producto) window.Carrito.add(producto);
+      const id = btn.dataset.id; 
+
+      const producto = productos.find(p => String(p.id) === String(id));
+
+      if (producto && window.Carrito && typeof window.Carrito.add === "function") {
+        window.Carrito.add(producto);
+      } else {
+        console.error("No se encontró producto o Carrito no cargó:", {
+          id,
+          producto,
+          Carrito: window.Carrito
+        });
+      }
     });
   });
 }
+
