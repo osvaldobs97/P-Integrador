@@ -13,4 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         crearCards(productos);
     }
+    if (window.Carrito) {
+        window.Carrito.init();
+    }
 });
+
