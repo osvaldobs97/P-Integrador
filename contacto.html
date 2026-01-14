@@ -84,6 +84,30 @@
         </div>
     </main>
 
+    <!--CARRITO -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasCarritoLabel">Tu carrito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div id="carritoItems" class="d-flex flex-column gap-3"></div>
+        </div>
+
+        <div class="p-3 border-top">
+            <div class="d-flex justify-content-between mb-2">
+                <span class="fw-bold">Total:</span>
+                <span class="fw-bold">$<span id="totalCarrito">0.00</span></span>
+            </div>
+
+            <button class="btn btn-outline-danger w-100 mb-2" id="btnVaciarCarrito">Vaciar carrito</button>
+            <button class="btn btn-primary w-100" id="btnCheckout">Finalizar compra</button>
+        </div>
+    </div>
+    <script src="./js/storage.js"></script>
+    <script src="./js/carrito.js"></script>
+
     <!-- Footer por JS -->
     <script src="./js/footer.js"></script>
 

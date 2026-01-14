@@ -1,3 +1,12 @@
+window.addEventListener('DOMContentLoaded', () => {
+
+
+  if (window.Carrito) {
+    window.Carrito.init();
+  }
+});
+
+
 (function () {
   const CARTS_KEY = "carritos";
 
@@ -120,8 +129,8 @@
               <img src="${p.imagen}" alt="${p.nombre}" width="54" height="54" style="object-fit:cover" class="rounded">
               <div>
                 <div class="fw-semibold">${p.nombre}</div>
-                <small class="text-muted">$${Number(p.precio).toFixed(2)} c/u</small>
-                <div><small class="text-muted">Subtotal: $${sub}</small></div>
+                <small class="text-white">$${Number(p.precio).toFixed(2)} c/u</small>
+                <div><small class="text-white">Subtotal: $${sub}</small></div>
               </div>
             </div>
 

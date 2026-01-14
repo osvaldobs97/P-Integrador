@@ -132,39 +132,46 @@ btnCartSidebar.addEventListener('click', function (event) {
 
     // Si todo es correcto
     if (bandera) {
+        //Notificacion
         Swal.fire({
             icon: "success",
             title: "¡Listo!",
             text: "Producto agregado al carrito.",
-            confirmButtonText: 'Ver carrito',
-            cancelButtonText: 'Seguir comprando',
-            showCancelButton: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = 'carrito.html';
-            }
+            confirmButtonText: 'Seguir comprando',
+
         });
+        //Agrega al carrito
+        fetch('./data/productos.json')
+            .then(res => res.json())
+            .then(productos => {
+                const activeBtn = document.querySelector('.nav-btn.active');
+                if (!activeBtn) return;
 
-        // Agregar al carrito
-        const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
-        const productoNombre = document.querySelector('.nav-btn.active').innerText;
+                // Extraer el ID. Asumimos alineación item-N = id N
+                const onclickAttr = activeBtn.getAttribute('onclick');
+                const match = onclickAttr.match(/'item-(\d+)'/);
 
-        // Crear objeto del producto
-        const nuevoProducto = {
-            usuario: usuarioLogueado.nombre,
-            correo: usuarioLogueado.correo,
-            producto: productoNombre,
-            imagen: globalDesignSrc
-        };
+                if (match) {
+                    const id = parseInt(match[1]);
+                    const productoData = productos.find(p => p.id === id);
 
-        // Obtener carrito actual o crear uno nuevo
-        let carrito = JSON.parse(localStorage.getItem('carritoCompras')) || [];
+                    if (productoData && window.Carrito) {
+                        // id, nombre, precio, imagen, cantidad
+                        // globalDesignSrc como la imagen para que se vea la personalización en el carrito
+                        window.Carrito.add({
+                            id: productoData.id + "_personalizado",
+                            nombre: productoData.nombre + (" (personalizado)"),
+                            precio: productoData.precio + (productoData.precio * 0.2),
+                            imagen: globalDesignSrc,//productoData.imagen,
+                            cantidad: 1
+                        });
+                    }
+                }
+            })
+            .catch(err => console.error("Error al agregar al carrito", err));
+        //Envia correo
 
-        // Añadir el nuevo producto
-        carrito.push(nuevoProducto);
 
-        // Guardar en localStorage
-        localStorage.setItem('carritoCompras', JSON.stringify(carrito));
 
 
     }//
