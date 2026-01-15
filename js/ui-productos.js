@@ -40,7 +40,7 @@ function crearCards(productos) {
             <p class="card-text flex-grow-1">${producto.descripcion}</p>
             <p class="fw-bold mb-2">Desde $${producto.precio} MXN</p>
             <button class="btn btn-primary mt-auto btn-personalizar" data-id="${producto.id}">Personalizar</button>
-            <button class="btn btn-primary mt-2 btn-agregar" data-id="${producto.id}">Agregar al carrito</button>
+            
           </div>
         </div>
       </div>

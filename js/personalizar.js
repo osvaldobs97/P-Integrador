@@ -1,7 +1,7 @@
 
 const btnCartSidebar = document.querySelector('.btn-cart-sidebar');
 
-let globalDesignSrc = './assets/universalcopy_icon.ico';
+let globalDesignSrc = './assets/invImg.png';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -27,7 +27,12 @@ function initFromURL() {
 
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => {
-                if (btn.getAttribute('onclick').includes(productId)) {
+                const onclickAttr = btn.getAttribute('onclick');
+
+                const match = onclickAttr.match(/'(item-\d+)'/);
+                const btnProductId = match ? match[1] : null;
+
+                if (btnProductId === productId) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
@@ -147,7 +152,7 @@ btnCartSidebar.addEventListener('click', function (event) {
                 const activeBtn = document.querySelector('.nav-btn.active');
                 if (!activeBtn) return;
 
-                // Extraer el ID. Asumimos alineación item-N = id N
+
                 const onclickAttr = activeBtn.getAttribute('onclick');
                 const match = onclickAttr.match(/'item-(\d+)'/);
 

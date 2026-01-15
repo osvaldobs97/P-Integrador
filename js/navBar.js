@@ -23,7 +23,7 @@ header.innerHTML = `
     <div class="text-end">
       <a id="btnLogin" href="login.html" class="btn btn-outline-light me-2">Login</a>
       <a id="btnRegistro" href="registro.html" class="btn btn-primary me-2">Registrarse</a>
-      <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCarrito">🛒 Carrito <span class="badge bg-danger" id="carritoCount">0</span></button>
+      <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCarrito"><i class="bi bi-cart-plus-fill"></i> <span class="badge bg-danger" id="carritoCount">0</span></button>
 
       <span id="bienvenida" class="text-light fw-semibold me-2" style="display:none"></span>
       <button id="btnLogout" class="btn btn-primary" style="display:none">Salir</button>
@@ -45,7 +45,7 @@ function actualizarBtnsNav() {
     btnRegistro.style.display = "none";
 
     bienvenida.style.display = "inline";
-    bienvenida.textContent = `Bienvenido, ${usuario.nombre}`;
+    bienvenida.textContent = `Bienvenido, ${usuario.nombre.split(" ")[0]}`;
 
     btnLogout.style.display = "inline";
   } else {
