@@ -77,22 +77,22 @@ btnSubmit.addEventListener("click", function (event) {
     isValid = false;
   }
 
- const correo = txtCorreo.value.trim().toLowerCase();
+  const correo = txtCorreo.value.trim().toLowerCase();
 
-if (!validarEmail(correo) || correoYaRegistrado(correo)) {
-  txtCorreo.style.border = "solid medium red";
+  if (!validarEmail(correo) || correoYaRegistrado(correo)) {
+    txtCorreo.style.border = "solid medium red";
 
-  if (!validarEmail(correo)) {
-    alertValidacionesTexto.innerHTML +=
-      "<strong>Correo inválido. Verifique el formato.</strong><br/>";
-  } else {
-    alertValidacionesTexto.innerHTML +=
-      "<strong>Este correo ya está registrado. Usa otro.</strong><br/>";
+    if (!validarEmail(correo)) {
+      alertValidacionesTexto.innerHTML +=
+        "<strong>Correo inválido. Verifique el formato.</strong><br/>";
+    } else {
+      alertValidacionesTexto.innerHTML +=
+        "<strong>Este correo ya está registrado. Usa otro.</strong><br/>";
+    }
+
+    alertValidaciones.style.display = "block";
+    isValid = false;
   }
-
-  alertValidaciones.style.display = "block";
-  isValid = false;
-}
 
   if (!validarContraseña(inputContraseñaReg.value)) {
     inputContraseñaReg.style.border = "solid medium red";
@@ -112,27 +112,52 @@ if (!validarEmail(correo) || correoYaRegistrado(correo)) {
 
   if (isValid) {
 
-    let usuario = {
-      nombre: inputNombreReg.value,
-      telefono: inputTelefonoReg.value,
-      correo: inputCorreoReg.value,
-      contraseña: inputContraseñaReg.value,
-    };
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    usuariosReg.push(usuario);
-    localStorage.setItem(USERS_KEY, JSON.stringify(usuariosReg));
-    Swal.fire({
-      icon: "success",
-      title: "¡Bienvenido!",
-      text: "Usuario registrado exitosamente",
-      confirmButtonText: "Continuar",
-    }).then(() => {
-      window.location.href = "login.html";
+    const raw = JSON.stringify({
+      fullName: inputNombreReg.value,
+      phone: inputTelefonoReg.value,
+      email: inputCorreoReg.value,
+      password: inputContraseñaReg.value
     });
 
-    formularioRegistro.reset();
-  } //isValid
-});
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw
+    };
+
+    fetch("http://3.22.223.95/api/customers/register", requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Error al registrar usuario");
+        }
+        return response.json();
+      })
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "¡Bienvenido!",
+          text: "Usuario registrado exitosamente",
+          confirmButtonText: "Continuar",
+        }).then(() => {
+          window.location.href = "login.html";
+        });
+      })
+      .catch(error => {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "No se pudo registrar el usuario",
+        });
+      });
+  }
+
+  formularioRegistro.reset();
+} //isValid
+);
 
 btnClear.addEventListener("click", function (event) {
   event.preventDefault();

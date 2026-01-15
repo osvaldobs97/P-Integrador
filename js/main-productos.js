@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let productos = getProductos();
 
     if (productos.length === 0) {
-        fetch("https://osvaldobs97.github.io/P-Integrador/data/productos.json")
+        fetch("http://3.22.223.95/api/products")
             .then(res => res.json())
             .then(data => {
                 saveProductos(data);
