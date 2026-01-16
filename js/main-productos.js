@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchProductos();    
 });
 
-//URL_api = "http://3.22.223.95/api/products";
-    URL_api = "http://127.0.0.1:8080/api/products"
+const URL_api = "http://3.22.223.95/api/products";
+    
 
 function fetchProductos() {
     fetch(URL_api)
