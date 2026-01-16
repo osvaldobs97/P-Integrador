@@ -25,7 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         fetch("http://3.22.223.95/api/products", requestOptions)
-            .then((response) => response.text())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Error al registrar usuario");
+                }
+                return response.json();
+            })
             .then((result) => console.log(result))
             .catch((error) => console.error(error));
 
