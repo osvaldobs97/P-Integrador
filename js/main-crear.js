@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!validarFormularioCrear()) return;
 
         const myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer ");
         myHeaders.append("Content-Type", "application/json");
 
         const raw = JSON.stringify({
