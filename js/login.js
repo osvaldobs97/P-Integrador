@@ -4,6 +4,9 @@ const alertLogin = document.getElementById("alertLogin");
 const alertTextoLogin = document.getElementById("alertTextoLogin");
 const btnAcceder = document.getElementById("btnAcceder");
 
+//URL_api = "http://3.22.223.95/api/login"
+URL_api = "http://127.0.0.1:8080/api/login"
+
 btnAcceder.addEventListener("click", async (event) => {
   event.preventDefault();
 
@@ -16,7 +19,7 @@ btnAcceder.addEventListener("click", async (event) => {
   }
 
   try {
-    const response = await fetch("http://localhost:8080/api/login", {
+    const response = await fetch(URL_api, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -32,7 +35,7 @@ btnAcceder.addEventListener("click", async (event) => {
     }
 
     const data = await response.json();
-    sessionStorage.setItem("token", data.token);
+    sessionStorage.setItem("token", data.accessToken);
 
     Swal.fire({
       icon: "success",

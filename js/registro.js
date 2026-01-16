@@ -14,6 +14,9 @@ const alertValidaciones = document.getElementById("alertValidacionesReg");
 //formulario
 const formularioContacto = document.getElementById("formularioRegistro");
 //variables
+//URL_api = "http://3.22.223.95/api/customers/register"
+URL_api = "http://127.0.0.1:8080/api/customers/register"
+
 const USERS_KEY = "usuariosReg";
 let usuariosReg = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 
@@ -128,7 +131,7 @@ btnSubmit.addEventListener("click", function (event) {
       body: raw
     };
 
-    fetch("http://3.22.223.95/api/customers/register", requestOptions)
+    fetch(URL_api, requestOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error("Error al registrar usuario");
