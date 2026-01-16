@@ -31,21 +31,21 @@ header.innerHTML = `
   </div>
 </nav>
 `;
-
 const btnLogin = header.querySelector("#btnLogin");
 const btnRegistro = header.querySelector("#btnRegistro");
 const btnLogout = header.querySelector("#btnLogout");
 const bienvenida = header.querySelector("#bienvenida");
 
 function actualizarBtnsNav() {
-  const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
-  if (usuario) {
+  const token = sessionStorage.getItem("token");
+
+  if (token) {
     btnLogin.style.display = "none";
     btnRegistro.style.display = "none";
 
     bienvenida.style.display = "inline";
-    bienvenida.textContent = `Bienvenido, ${usuario.nombre.split(" ")[0]}`;
+    bienvenida.textContent = "Bienvenido";
 
     btnLogout.style.display = "inline";
   } else {
@@ -58,7 +58,8 @@ function actualizarBtnsNav() {
 }
 
 btnLogout.addEventListener("click", () => {
-  localStorage.removeItem("usuarioLogueado");
+  sessionStorage.removeItem("token");
+
   actualizarBtnsNav();
   window.location.href = "login.html";
 });
